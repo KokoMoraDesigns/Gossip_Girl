@@ -1,0 +1,44 @@
+.home-wrapper {
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    
+
+    .home-content {
+    
+
+        .quote {
+            font-family: 'Estonia', serif;
+            font-size: 3.5rem;
+            display: flex;
+            justify-self: center;
+            margin-top: 40px;
+
+        }
+        
+
+        .logo {
+            
+            margin-top: 340px;
+
+
+            .logo-part-one {
+                font-family: 'Estonia', serif;
+                font-size: 5rem;
+                display: flex;
+                justify-self: center;
+                
+            }
+
+            .logo-part-two {
+                font-family: 'Italianno', serif;
+                font-size: 7rem;
+                display: flex;
+                justify-self: center;
+            }
+
+        }
+    }
+
+}
+

@@ -1,3 +1,8 @@
+@import './variables.scss';
+@import './navigation_container.scss';
+@import './home.scss';
+
+
 html {
     font-size: 62.5%; // 1rem is 10px
 }
@@ -8,7 +13,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    font-family: 'montserrat';
+   
 }
 
 body {

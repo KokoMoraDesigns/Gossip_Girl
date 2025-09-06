@@ -1,0 +1,43 @@
+
+.navigation-wrapper {
+   
+
+    .navigation-box {
+        display: flex;
+        justify-content: center;
+        
+
+        .navigation-link {
+
+            font-family: "Cormorant", serif;
+            font-size: 1.8rem;
+            //padding: 25px;    
+            margin: 45px;
+            
+            
+            a{
+                text-decoration: none;
+                color: $bordeaux;
+                transition: 0.5s ease-in-out;
+
+                &:hover {
+                    
+                    color: $cherry-red;
+                    
+                    
+    
+                }
+                
+                
+            }
+
+            .nav-link-active {
+                color: $cherry-red;
+            }
+     
+        
+
+        }
+  
+    }
+}
