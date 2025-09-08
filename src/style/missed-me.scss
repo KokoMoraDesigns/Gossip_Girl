@@ -1,0 +1,26 @@
+.content-wrapper {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+
+    .right-column {
+        margin: 75px;
+        text-align: center;
+        font-family: 'cormorant', serif;
+        font-size: 1.5rem;
+
+        p{
+            margin-bottom: 10px;
+        }
+
+        .edit-paragraph {
+            font-family: 'estonia', serif;
+            font-size: 2.5rem;
+            
+        }
+
+    }
+
+
+}

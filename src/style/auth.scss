@@ -1,0 +1,58 @@
+.auth-wrapper{
+    @include page-disposition();
+
+    .content-wrapper {
+
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        height: 573px;
+
+        .site-name, .handle-error {
+            font-family: 'Italianno', serif;
+        }
+
+        .site-name {
+            font-size: 7rem;
+            margin-top: 50px;
+        }
+
+        .handle-error {
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+
+        .auth-form-wrapper {
+
+            margin-top: 45px;
+
+            .form {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 25px;
+
+                svg {
+                    font-size: 1.5rem;
+                    margin-top: 10px;
+                    color: $villa-nova;
+                }
+
+                input {
+                    @include input-styles();
+                }
+            }
+
+            .btn {
+
+                @include button();
+                display: flex;
+                justify-self: center;
+                margin-top: 50px;
+
+            }
+        }
+    }
+}

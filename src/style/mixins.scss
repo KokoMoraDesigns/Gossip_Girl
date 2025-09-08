@@ -1,0 +1,77 @@
+@mixin logo {
+    
+    margin-top: 340px;
+
+
+    .logo-part-one {
+        font-family: 'Estonia', serif;
+        font-size: 5rem;
+        display: flex;
+        justify-self: center;
+            
+    }
+
+    .logo-part-two {
+        font-family: 'Italianno', serif;
+        font-size: 7rem;
+        display: flex;
+        justify-self: center;
+    }
+
+    
+}
+
+@mixin button {
+
+    background-color: $ruby-red;
+    color: $cotton;
+    font-family: 'Cormorant', serif;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.65s ease-in-out;
+    box-shadow: 5px 5px 15px 5px $dark-maroon;
+
+    &:hover {
+        background-color: $obsidian-black;
+        color: $cotton;
+        box-shadow: 5px 5px 15px 5px $obsidian-black;
+        
+    }
+
+    &:active, &:focus {
+        outline: none;
+    }
+
+}
+
+@mixin input-styles {
+    
+    font-family: 'Cormorant', serif;
+    font-size: 1.4rem;
+    margin-left: 25px;
+    width: 100%;
+    padding: 5px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid $obsidian-black;
+    background-color: transparent;
+    transition: 0.5s all ease-in-out;
+    
+    
+
+    &:focus {
+        outline: none;
+    
+        
+    }
+}
+
+
+
+@mixin page-disposition {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}

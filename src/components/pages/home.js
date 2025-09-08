@@ -5,11 +5,14 @@ export default function() {
     return (
         <div className='home-wrapper'>
 
-            <div className='image-space-left' style={{
-                background: 'url(' + NewspaperImage + ') no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'left'
-            }}></div>
+            <div 
+                className='image-space-left' 
+                style={{
+                    background: 'url(' + NewspaperImage + ') no-repeat',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'left'
+                }}
+            />
 
             <div className='home-content'>
 
