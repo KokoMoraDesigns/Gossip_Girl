@@ -1,10 +1,11 @@
 @import './variables.scss';
 @import './mixins.scss';
-@import './navigation_container.scss';
-@import './home.scss';
-@import './missed-me.scss';
-@import './no-match.scss';
-@import './auth.scss';
+@import './fragments/navigation_container.scss';
+@import './pages/home.scss';
+@import './pages/missed-me.scss';
+@import './pages/no-match.scss';
+@import './pages/auth.scss';
+@import './pages/anonymous-mailbox.scss';
 
 
 

@@ -1,0 +1,52 @@
+.content-wrapper {
+
+    .left-column {
+        height: vw;
+    }
+
+
+    .right-column {
+
+        .text-title, .text-pd {
+
+            font-family: 'Estonia', serif;
+            font-size: 2.5rem;
+
+        }
+
+        .text-title {
+            margin-bottom: 40px;
+        }
+
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+
+            svg {
+
+                margin-right: 25px;
+                color: $villa-nova;
+
+            }
+        }
+
+        .text-pd {
+            margin-top: 40px
+        }
+
+        .logo {
+            @include logo();
+            margin-top: 72.5px;
+            
+            .logo-part-one {
+                font-size: 3rem;
+            }
+
+            .logo-part-two {
+                font-size: 5rem;
+            }
+        }
+    }
+}

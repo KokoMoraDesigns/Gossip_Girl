@@ -23,7 +23,7 @@
 
 @mixin button {
 
-    background-color: $ruby-red;
+    //background-color: $ruby-red;
     color: $cotton;
     font-family: 'Cormorant', serif;
     cursor: pointer;
@@ -31,12 +31,16 @@
     font-size: 1.5rem;
     border: 1px solid transparent;
     transition: all 0.65s ease-in-out;
-    box-shadow: 5px 5px 15px 5px $dark-maroon;
+    //box-shadow: 5px 5px 15px 5px $dark-maroon;
+    background-color: $obsidian-black;
+    box-shadow: 5px 5px 15px 5px $obsidian-black;
 
     &:hover {
-        background-color: $obsidian-black;
+        //background-color: $obsidian-black;
         color: $cotton;
-        box-shadow: 5px 5px 15px 5px $obsidian-black;
+        //box-shadow: 5px 5px 15px 5px $obsidian-black;
+        background-color: $ruby-red;
+        box-shadow: 5px 5px 15px 5px $dark-maroon;
         
     }
 

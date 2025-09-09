@@ -1,9 +1,13 @@
 .no-match-wrapper{
     @include page-disposition();
+    //display: grid;
+    //grid-template-columns: 1.5fr 2fr 1.5fr;
+   
 
     .home-content{
         position: relative;
         margin-top: 82px;
+        
 
         .text {
             font-size: 3rem;

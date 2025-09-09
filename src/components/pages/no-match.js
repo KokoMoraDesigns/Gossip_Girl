@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import sideImage from '../../../static/assets/images/no-match/17.jpg'
+import sideImage from '../../../static/assets/images/no-match/37.png'
 
-
+//17 o 37 o 44 o 50
 
 export default function() {
     return (
