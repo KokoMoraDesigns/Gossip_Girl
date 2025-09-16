@@ -20,6 +20,9 @@ import NoMatch from './pages/no-match';
 import Icons from '../helpers/icons';
 
 
+
+axios.defaults.withCredentials = true;
+
 export default class App extends Component {
 
   constructor(props) {
@@ -57,15 +60,15 @@ export default class App extends Component {
   checkLoginStatus() {
 
     return axios
-      .get('https://api.devcamp.space/logged_in', {
+      .get('http://localhost:5005/check_session', {
         withCredentials:true
       })
       .then(response => {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
 
-        if (loggedIn && loggedInStatus === 'LOGGED_IN') {
-          return loggedIn;
+        if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
+          this.setState({ loggedInStatus: 'LOGGED_IN' });
   
         } else if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
           this.setState({
@@ -103,7 +106,7 @@ export default class App extends Component {
 
     return (
 
-      <div className='container'>
+      <div className='app'>
 
         <Router>
 

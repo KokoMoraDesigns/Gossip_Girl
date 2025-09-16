@@ -28,17 +28,12 @@ export default class Login extends Component {
     handleSubmit(event) {
         axios
             .post(
-                'https://api.devcamp.space/sessions', 
-                {
-                    client: {
-                        email: this.state.email,
-                        password: this.state.password
-                    }
-                },
-                { withCredentials: true }
-            )
+                'http://localhost:5005/login', {
+                    email: this.state.email,
+                    password: this.state.password
+                }, { withCredentials: true })
             .then(response => {
-                if (response.data.status === 'created') {
+                if (response.status === 200) {
                     this.props.handleSuccessfulAuth();
                 }   else {
                     this.setState({
@@ -133,3 +128,5 @@ export default class Login extends Component {
     }
 
 }
+
+
