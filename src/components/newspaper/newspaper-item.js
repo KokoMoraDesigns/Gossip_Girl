@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default class NewspaperItem extends Component {
@@ -35,7 +36,7 @@ export default class NewspaperItem extends Component {
                 >
                     
                     <div 
-                        className={'newspaoer-image-background' + this.state.newspaperItemClass}
+                        className={'newspaper-image-background' + this.state.newspaperItemClass}
                         style={{
                             backgroundImage: 'url(' + cover_image + ')'
                         }}

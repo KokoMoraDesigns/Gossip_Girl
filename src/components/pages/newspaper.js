@@ -4,13 +4,11 @@ import NewspaperContainer from '../newspaper/newspaper-container';
 
 export default function() {
     return (
-        <div className='home-wrapper'>
+        <div>
+
+            <NewspaperContainer />
 
             
-
-            <div className='logo'>newspaper</div>
-
-            <div className='quote'>yadayada</div>
 
         </div>
     );

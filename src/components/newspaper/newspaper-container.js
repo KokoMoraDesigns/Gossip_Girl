@@ -28,7 +28,7 @@ export default class NewspaperContainer extends Component {
     }
 
     getNewspaperItems(filter = null){
-        axios.get('')
+        axios.get('http://localhost:5005/get_news', { withCredentials: true })
         .then(response => {
             if (filter) {
                 this.setState({
@@ -45,7 +45,7 @@ export default class NewspaperContainer extends Component {
 
         })
         .catch(error => {
-            console.log(error);
+            console.log('getNewspaperItems error', error);
         });
     }
 
