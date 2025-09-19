@@ -16,6 +16,7 @@ import AnonymousMailbox from './pages/anonymous_mailbox';
 import Newspaper from './pages/newspaper';
 import NewspaperItem from './pages/newspaper_item';
 import NewspaperManager from './pages/newspaper_manager';
+import NewspaperDetail from './newspaper/newspaper-detail';
 import NoMatch from './pages/no-match';
 import Icons from '../helpers/icons';
 
@@ -135,6 +136,11 @@ export default class App extends Component {
 
               <Route path='/anonymous-mailbox' component={AnonymousMailbox} />
 
+              <Route
+                exact path='/newspaper/:news_id'
+                component={NewspaperDetail}
+              />
+
               <Route 
                 path='/newspaper'
                 render={props => (
@@ -142,15 +148,11 @@ export default class App extends Component {
                 )}
               />
 
-              <Route 
-                path='/newspaper/:slug'
-                render={props => (
-                  <NewspaperItem {...props} loggedInStatus={this.state.loggedInStatus} />
-                )} 
-              />
 
 
               {this.state.loggedInStatus === 'LOGGED_IN' ? this.authorizedPages() : null}
+
+
 
 
               <Route component={NoMatch} />
