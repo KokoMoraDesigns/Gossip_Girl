@@ -2,7 +2,8 @@ import {
     faEnvelope,
     faKey,
     faMoon,
-    faFeather
+    faFeather,
+    faNewspaper
 } from '@fortawesome/free-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -14,7 +15,8 @@ const Icons = () => {
         faEnvelope,
         faKey,
         faMoon,
-        faFeather
+        faFeather,
+        faNewspaper
     );
 };
 

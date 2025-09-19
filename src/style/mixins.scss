@@ -79,3 +79,8 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 }
+
+@mixin default-flex {
+    display: flex;
+    justify-content: center;
+}

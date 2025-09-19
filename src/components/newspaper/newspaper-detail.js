@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 
 
 export default class NewspaperDetail extends Component {
@@ -48,16 +52,52 @@ export default class NewspaperDetail extends Component {
         return (
             <div className='newspaper-detail-wrapper'>
 
-                <div className='title'>{title}</div>
+                <div 
+                    className='image-space-left' 
+                    style={{
+                        background: 'url(' + NewspaperDetailImage + ') no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}
+                />
 
-                <div className='dates'>
-                    {updated_at
-                        ? `created at ${created_at} & updated at ${updated_at}`
-                        : `created at ${created_at}`
-                    }
+                <div className='newspaper-detail-content'>
+
+
+                    <div className='title'>{title}</div>
+
+                    <div className='dates'>
+                        {updated_at
+                            ? `created at ${created_at} & updated at ${updated_at}`
+                            : `created at ${created_at}`
+                        }
+                    </div>
+
+                    <div className='content'>{content}</div>
+
+                    <a href='http://localhost:3001/newspaper'>
+                        <FontAwesomeIcon icon='newspaper'/>
+                    </a>
+
+                    
+
+                    <div className='logo'>
+
+                        <div className='logo-part-one'>xoxo,</div>
+
+                        <div className='logo-part-two'>Gossip Girl</div>
+
+                    </div>
                 </div>
 
-                <div className='content'>{content}</div>
+                <div 
+                    className='image-space-right' 
+                    style={{
+                        background: 'url(' + NewspaperDetailImage + ') no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}
+                />
             </div>
         );
     }
