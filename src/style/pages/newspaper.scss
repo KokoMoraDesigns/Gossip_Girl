@@ -1,0 +1,110 @@
+.newspaper-wrapper{
+
+    .filter-links{
+
+        display: flex;
+        justify-content: center;
+        
+        
+        .btn{
+
+            @include button();
+
+            box-shadow: 5px 5px 15px 5px transparent;
+            font-family: 'estonia', serif;
+            font-size: 2.4rem;
+            width: 100%;
+
+
+        }
+
+    }
+
+    .newspaper-items-wrapper{
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        
+
+        .newspaper-item-wrapper{
+
+            position: relative;
+            
+            .newspaper-image-background{
+                background-size:cover;
+                background-position: center;
+                height: 450px;
+                width: 100%;
+                
+                
+                
+
+
+            }
+
+            .image-text-wrapper{
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                text-align: center;
+                padding-left: 100px;
+                padding-right: 100px;
+                
+                
+                
+                
+
+                .title {
+                    transition: 1s ease-in-out;
+                    color: transparent;
+                    pointer-events: none;
+                    text-align: center;
+                    font-family: 'Cormorant', serif;
+                    font-size: 1.7em;
+                    
+                    
+                    
+                    
+
+                    
+                    
+                    
+                   
+                }
+
+            
+
+            }
+
+           .image-text-wrapper:hover .title {
+                color: $cotton;
+                pointer-events: auto;
+              
+                
+                
+              
+                
+
+             
+
+            }
+        }
+
+        
+
+    }
+    
+
+
+}
+
+.image-blur{
+    transition: 1s;
+    filter: brightness(25%);
+
+}

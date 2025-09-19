@@ -36,9 +36,9 @@ export default class NewspaperItem extends Component {
                 >
                     
                     <div 
-                        className={'newspaper-image-background' + this.state.newspaperItemClass}
+                        className={`newspaper-image-background ${this.state.newspaperItemClass}`}
                         style={{
-                            backgroundImage: 'url(' + cover_image + ')'
+                            backgroundImage: `url(http://localhost:5005${cover_image})`
                         }}
                     />
 
