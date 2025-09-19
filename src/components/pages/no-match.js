@@ -22,7 +22,7 @@ export default function() {
 
                 <div className='text'>I don't know what your intentions were, but they won't be satisfied here</div>
 
-                <Link to='/hi-bitches'>
+                <Link to='/newspaper'>
                     <button className='btn'>Please, go away</button>
                 </Link>
 

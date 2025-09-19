@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,6 +38,8 @@ export default class NewspaperDetail extends Component {
         })
         .catch(error => {
             console.log('getNewspaperItem error', error);
+            this.props.history.push('/no-match');
+
         });
     }
 
@@ -75,9 +78,11 @@ export default class NewspaperDetail extends Component {
 
                     <div className='content'>{content}</div>
 
-                    <a href='http://localhost:3001/newspaper'>
+                    <Link to='/newspaper'>
                         <FontAwesomeIcon icon='newspaper'/>
-                    </a>
+                    </Link>
+
+                    
 
                     
 

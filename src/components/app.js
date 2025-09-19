@@ -14,7 +14,6 @@ import AboutGossipGirl from './pages/missed-me';
 import Auth from './pages/auth';
 import AnonymousMailbox from './pages/anonymous_mailbox';
 import Newspaper from './pages/newspaper';
-import NewspaperItem from './pages/newspaper_item';
 import NewspaperManager from './pages/newspaper_manager';
 import NewspaperDetail from './newspaper/newspaper-detail';
 import NoMatch from './pages/no-match';
@@ -119,7 +118,7 @@ export default class App extends Component {
 
             <Switch>
 
-              <Route exact path='/hi-bitches' component={Home} />
+              <Route exact path='/' component={Home} />
 
               <Route
                 path='/auth'
@@ -132,7 +131,7 @@ export default class App extends Component {
                 )}
               />
 
-              <Route path='/missed-me' component={AboutGossipGirl} />
+              <Route path='/hi-bitches' component={AboutGossipGirl} />
 
               <Route path='/anonymous-mailbox' component={AnonymousMailbox} />
 

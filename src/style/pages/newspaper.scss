@@ -1,5 +1,7 @@
 .newspaper-wrapper{
 
+    margin-top: 25px;
+
     .filter-links{
 
         display: flex;
@@ -30,6 +32,7 @@
         .newspaper-item-wrapper{
 
             position: relative;
+            cursor: pointer;
             
             .newspaper-image-background{
                 background-size:cover;
@@ -47,52 +50,36 @@
             .image-text-wrapper{
                 position: absolute;
                 top: 0;
+                height: 100%;
+                
                 display: flex;
-                flex-direction: column;
+                //flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 100%;
+
                 text-align: center;
                 padding-left: 100px;
                 padding-right: 100px;
                 
-                
-                
-                
-                
 
                 .title {
-                    transition: 1s ease-in-out;
+                    transition: all 1s ease-in-out;
                     color: transparent;
-                    pointer-events: none;
+                    //pointer-events: none;
                     text-align: center;
                     font-family: 'Cormorant', serif;
                     font-size: 1.7em;
-                    
-                    
-                    
-                    
-
-                    
-                    
-                    
                    
                 }
-
-            
 
             }
 
            .image-text-wrapper:hover .title {
                 color: $cotton;
-                pointer-events: auto;
+                //pointer-events: auto;
+                transition: all 1s ease-in-out;
+                
               
-                
-                
-              
-                
-
-             
 
             }
         }
@@ -106,7 +93,7 @@
 }
 
 .image-blur{
-    transition: 1s;
+    transition: all 1s ease-in-out;
     filter: brightness(25%);
 
 }

@@ -31,7 +31,11 @@
             font-weight: 300;
             @include default-flex();
             margin: 77px 84px 17px 84px;
+            //margin: 17px 84px 29px 84px;
             text-align: center;
+            //border-bottom: 0.8px solid $obsidian-black;
+            //border-top: 0.8px solid $obsidian-black;
+            //padding: 12px 0px;
             
     
         }
@@ -56,6 +60,7 @@
             font-size: 1.7em;
             margin-top: 90px;
             color: $villa-nova;
+            transition: 1s ease-in-out;
             //color: rgba(169, 169, 169, 0.733);
             
         }

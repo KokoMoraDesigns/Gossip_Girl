@@ -30,10 +30,11 @@
     padding: 12px;
     font-size: 1.5rem;
     border: 1px solid transparent;
-    transition: all 0.65s ease-in-out;
+    transition: all 1s ease-in-out;
     //box-shadow: 5px 5px 15px 5px $dark-maroon;
     background-color: $obsidian-black;
     box-shadow: 5px 5px 15px 5px $obsidian-black;
+
 
     &:hover {
         //background-color: $obsidian-black;
@@ -41,6 +42,7 @@
         //box-shadow: 5px 5px 15px 5px $obsidian-black;
         background-color: $maroon;
         box-shadow: 5px 5px 15px 5px $dark-maroon;
+        transition: all 1s ease-in-out;
         
     }
 
@@ -62,15 +64,13 @@
     border-right: 0px;
     border-bottom: 1px solid $obsidian-black;
     background-color: transparent;
-    transition: 0.5s all ease-in-out;
-    
+    transition: all 0.5s ease-in-out;
     
 
     &:focus {
-        outline: none;
-    
-        
+        outline: none;        
     }
+
 }
 
 

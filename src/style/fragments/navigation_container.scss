@@ -3,6 +3,8 @@
 
     display: flex;
     justify-content: center;
+    //height: 125px;
+    align-items: center;
    
 
     .navigation-box {
@@ -20,7 +22,8 @@
             a{
                 text-decoration: none;
                 color: $obsidian-black;
-                transition: 0.5s ease-in-out;
+                transition: all 0.7s ease-in-out;
+                cursor: pointer;
 
                 &:hover {
                     color: $cherry-red;
@@ -44,11 +47,11 @@
         
         svg {
             cursor: pointer;
-            margin-top: 50px;
             margin-left: 45px;
             font-size: 1.5em;
-            transition: 0.75s ease-in-out;
+            transition:all 0.75s ease-in-out;
             filter: drop-shadow(-1px 2px 4px $obsidian-black);
+
             
             
 

@@ -26,7 +26,7 @@ const NavigationComponent = (props) => {
             .then(response => {
 
                 if (response.status === 200) {
-                    props.history.push('/hi-bitches');
+                    props.history.push('/');
                     props.handleSuccessfulLogout();
                 }
 
@@ -46,13 +46,13 @@ const NavigationComponent = (props) => {
     
                 <div className='navigation-link'>
         
-                    <NavLink to='/hi-bitches' activeClassName='nav-link-active'>home</NavLink>
+                    <NavLink exact to='/' activeClassName='nav-link-active'>home</NavLink>
         
                 </div>
         
                 <div className='navigation-link'>
                     
-                    <NavLink to='/missed-me' activeClassName='nav-link-active'>missed me?</NavLink>
+                    <NavLink to='/hi-bitches' activeClassName='nav-link-active'>missed me?</NavLink>
         
                 </div>
 
