@@ -61,25 +61,23 @@ export default class NewspaperManager extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const newData = {
-            title: this.state.title,
-            content: this.state.content,
-            cover_image: this.state.cover_image,
-            category: this.state.category,
-            images: this.state.images,
-            user_id: 1
-        };
+        const formData = new FormData();
+        formData.append('title', this.state.title);
+        formData.append('content', this.state.content);
+        formData.append('category', this.state.category);
+        formData.append('user_id', 1);
+        
+        if (this.state.cover_image instanceof File) {
+            formData.append('cover_image', this.state.cover_image);
+        }
 
         if (this.state.editingId) {
-            axios.put(`http://localhost:5005/update_news/${this.state.editingId}`, newData, {withCredentials: true} )
+            axios.put(`http://localhost:5005/update_news/${this.state.editingId}`, formData, {
+                withCredentials: true, 
+                headers: { 'Content-Type': 'multipart/form-data' } })
             .then(() => {
                 this.setState({
                     message: 'this gossip has been successfully updated',
-                    title: '',
-                    content: '',
-                    cover_image: '', 
-                    images: '',
-                    category: '',
                     editingId: null
                 });
                 this.loadNews();
@@ -90,15 +88,13 @@ export default class NewspaperManager extends Component {
             });
         } else {
 
-            axios.post('http://localhost:5005/add_new', newData, { withCredentials: true })
+            axios.post('http://localhost:5005/add_new', formData, { 
+                withCredentials: true,
+                headers: { 'Content-Type': 'multipart/form-data'}
+            })
             .then(() => {
                 this.setState({
-                    message: 'this gossip has been successfully created',
-                    title: '',
-                    content: '',
-                    cover_image: '',
-                    category: '',
-                    images: ''
+                    message: 'this gossip has been successfully created'
                 });
                 this.loadNews();
             })
@@ -148,7 +144,7 @@ export default class NewspaperManager extends Component {
 
                 <div className='newspaper-manager-action'>{this.state.editingId ? 'Wanna update a rumour?' : 'Wanna create a rumour?'}</div>
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
 
                     <input
                         type='text'
@@ -166,20 +162,11 @@ export default class NewspaperManager extends Component {
                     />
 
                     <input
-                        type='text'
+                        type='file'
                         name='cover_image'
-                        placeholder='Cover URL'
-                        value={this.state.cover_image}
-                        onChange={this.handleChange}
+                        onChange={(e) => this.setState({ cover_image: e.target.files[0] })}
                     />
 
-                    <input
-                        type='text'
-                        name='image'
-                        placeholder='Evidences URL'
-                        value={this.state.images}
-                        onChange={this.handleChange}
-                    />
 
                     <select
                         name='category'
