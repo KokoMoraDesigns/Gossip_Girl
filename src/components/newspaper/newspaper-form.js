@@ -11,6 +11,7 @@ export default class NewspaperForm extends Component {
             title: props.editingItem ? props.editingItem.title : '',
             content: props.editingItem ? props.editingItem.content : '',
             cover_image: null,
+            news_images: [],
             category: props.editingItem ? props.editingItem.category : '',
             message: ''
         };
@@ -18,6 +19,7 @@ export default class NewspaperForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
+        this.handleImagesChange = this.handleImagesChange.bind(this);
 
 
         
@@ -31,6 +33,7 @@ export default class NewspaperForm extends Component {
                 title: item ? item.title : '',
                 content: item ? item.content : '',
                 cover_image: null,
+                news_images: [],
                 category: item ? item.category : ''
             });
         }
@@ -48,6 +51,10 @@ export default class NewspaperForm extends Component {
         this.setState({ cover_image: event.target.files[0] });
     }
 
+    handleImagesChange(event) {
+        this.setState({ news_images: Array.from(event.target.files) });
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -61,6 +68,10 @@ export default class NewspaperForm extends Component {
         if (this.state.cover_image) {
             formData.append('cover_image', this.state.cover_image);
         }
+
+        this.state.news_images.forEach(file => {
+            formData.append('news_images', file);
+        });
 
         const url = this.props.editingItem
             ? `http://localhost:5005/update_news/${this.props.editingItem.id}`
@@ -122,12 +133,21 @@ export default class NewspaperForm extends Component {
                         <option value='Teachers'>Teacher</option>
                         <option value='Classmates'>Classmate</option>
                         <option value='Parent'>Parent</option>
-                    </select>                    
+                    </select>
 
+                    <label>Cover Image:</label>
                     <input
                         type='file'
                         name='cover_image'
                         onChange={this.handleFileChange}
+                    />
+
+                    <label>Evidences:</label>
+                    <input
+                        type='file'
+                        name='news_images'
+                        multiple
+                        onChange={this.handleImagesChange}
                     />
 
 

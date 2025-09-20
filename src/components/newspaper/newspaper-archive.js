@@ -48,7 +48,7 @@ export default class NewspaperArchive extends Component {
                             )}
 
 
-                            <button className='btn' onClick={() => this.handleEdit(news)}> update gossip </button>
+                            <button className='btn' onClick={() => this.props.onEdit(news)}> modify gossip </button>
                             <button className='btn' onClick={() => this.handleDelete(news.id)}> bye gossip </button>
                 
           

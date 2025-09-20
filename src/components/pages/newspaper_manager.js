@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import NewspaperForm from "../newspaper/newspaper-form";
-import NewspaperArchive from "../newspaper/newspaper-sidebar";
+import NewspaperArchive from "../newspaper/newspaper-archive";
 
 export default class NewspaperManager extends Component {
     constructor(props) {
