@@ -31,7 +31,7 @@
             font-weight: 300;
             @include default-flex();
             margin: 77px 84px 17px 84px;
-            //margin: 17px 84px 29px 84px;
+            //margin: 37px 84px 29px 84px;
             text-align: center;
             //border-bottom: 0.8px solid $obsidian-black;
             //border-top: 0.8px solid $obsidian-black;
@@ -48,6 +48,8 @@
             margin: 0 84px;
             text-align: justify;
             font-size: 1.3em;
+            //display: grid;
+            //grid-template-columns: 1fr 1fr;
             
             
 

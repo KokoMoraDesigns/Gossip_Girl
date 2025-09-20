@@ -18,6 +18,27 @@ export default class NewspaperContainer extends Component {
         this.handleFilter = this.handleFilter.bind(this);
     }
 
+
+
+    getNewspaperItems(category = null){
+
+        const url = category
+            ? `http://localhost:5005/get_news/${category}`
+            : `http://localhost:5005/get_news`;
+
+        axios.get(url, { withCredentials: true })
+        .then(response => {
+            this.setState({
+                data: response.data.newspaper_items
+                    
+            });
+
+        })
+        .catch(error => {
+            console.log('getNewspaperItems error', error);
+        });
+    }
+
     handleFilter(filter) {
         if (filter === 'CLEAR_FILTERS') {
             this.getNewspaperItems();
@@ -27,27 +48,7 @@ export default class NewspaperContainer extends Component {
         }
     }
 
-    getNewspaperItems(filter = null){
-        axios.get('http://localhost:5005/get_news', { withCredentials: true })
-        .then(response => {
-            if (filter) {
-                this.setState({
-                    data: response.data.newspaper_items.filter(item => {
-                        return item.category === filter;
-                    })
-                });
-            } else {
-                this.setState({
-                    data: response.data.newspaper_items
-                });
 
-            }
-
-        })
-        .catch(error => {
-            console.log('getNewspaperItems error', error);
-        });
-    }
 
     newspaperItems() {
         return this.state.data.map(item => {
@@ -84,7 +85,7 @@ export default class NewspaperContainer extends Component {
                     <button className='btn' onClick={() => this.handleFilter('Teachers')}>Teachers</button>
                     <button className='btn' onClick={() => this.handleFilter('Classmates')}>Classmates</button>
                     <button className='btn' onClick={() => this.handleFilter('Parents')}>Parents</button>
-                    <button className='btn' onClick={() => this.handleFilter('Everyone')}>Everyone</button>
+                    <button className='btn' onClick={() => this.handleFilter('CLEAR_FILTERS')}>Everyone</button>
                 </div>
 
                 <div className='newspaper-items-wrapper'>
