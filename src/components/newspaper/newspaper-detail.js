@@ -44,25 +44,6 @@ export default class NewspaperDetail extends Component {
         });
     }
 
-    handleDeleteImage(url) {
-        const { id } = this.state.newspaperItem;
-
-        axios.delete(`http://localhost:5005/delete_news_image/${id}`, {
-            data: { image_url: url },
-            withCredentials: true
-        })
-        .then(() => {
-            this.setState(prevState => ({
-                newspaperItem: {
-                    ...prevState.newspaperItem,
-                    news_images: prevState.newspaperItem.news_images.filter(img => img !== url)
-                }
-            }));
-        })
-        .catch(error => {
-            console.log('delete image error', error);
-        });
-    }
 
     render() {
         
@@ -130,20 +111,25 @@ export default class NewspaperDetail extends Component {
 
                                             }}
                                         />
-                                        <button 
-                                            className='btn'
-                                            onClick={() => this.handleDeleteImage(url)}
-                                            style={{ marginTop: '10px', color: 'red', cursor: 'pointer' }}
-                                        >bye file</button>
+
                                     </div>
                                 ))}
                             </Slider>
                         </div>
                     )}
 
-                    <Link to='/newspaper'>
-                        <FontAwesomeIcon icon='newspaper'/>
-                    </Link>
+                    <div className='icons'>
+                        <Link to='/newspaper'>
+                            <FontAwesomeIcon icon='newspaper'/>
+                        </Link>
+
+                        <Link to='/newspaper-manager'>
+                            <FontAwesomeIcon icon='feather'/>
+                        </Link>
+
+                    </div>
+
+
 
                     
 
