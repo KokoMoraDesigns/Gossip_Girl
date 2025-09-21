@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class NewspaperForm extends Component {
 
@@ -13,13 +14,16 @@ export default class NewspaperForm extends Component {
             cover_image: null,
             news_images: [],
             category: props.editingItem ? props.editingItem.category : '',
-            message: ''
+            message: '',
+            existingCover: props.editingItem ? props.editingItem.cover_image : null,
+            existingImages: props.editingItem ? props.editingItem.news_images || [] : []
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleImagesChange = this.handleImagesChange.bind(this);
+        this.handleDeleteImage = this.handleDeleteImage.bind(this);
 
 
         
@@ -34,11 +38,13 @@ export default class NewspaperForm extends Component {
                 content: item ? item.content : '',
                 cover_image: null,
                 news_images: [],
-                category: item ? item.category : ''
+                category: item ? item.category : '',
+                existingCover: item ? item.cover_image : null,
+                existingImages: item ? item.news_images || [] : []
             });
+            window.scrollTo(0,0);
         }
     }
-
 
 
 
@@ -53,6 +59,20 @@ export default class NewspaperForm extends Component {
 
     handleImagesChange(event) {
         this.setState({ news_images: Array.from(event.target.files) });
+    }
+
+    handleDeleteImage(url) {
+        const { id } = this.props.editingItem;
+        axios.delete(`http://localhost:5005/delete_news_image/${id}`, {
+            data: { image_url: url },
+            withCredentials: true
+        })
+        .then(() => {
+            this.setState(prevState => ({
+                existingImages: prevState.existingImages.filter(img => img !== url)
+            }));
+        })
+        .catch(error => console.log('handleDeleteImage error:', error));
     }
 
 
@@ -93,7 +113,7 @@ export default class NewspaperForm extends Component {
         .catch(error => {
             console.log('newsForm error', error);
             this.setState({ message: 'there has been an error in the proccess of spreading this gossip'})
-        })
+        });
 
 
 
@@ -135,14 +155,45 @@ export default class NewspaperForm extends Component {
                         <option value='Parent'>Parent</option>
                     </select>
 
-                    <label>Cover Image:</label>
+                    
+                    {this.state.existingCover && (
+                        <div className='cover-preview'>
+                            <p>Current cover:</p>
+                            <img
+                                src={`http://localhost:5005${this.state.existingCover}`}
+                                alt='cover'
+                                className='cover-thumb'
+                            />
+                        </div>
+                    )}
+
+                    <label>Change Cover Image:</label>
                     <input
                         type='file'
                         name='cover_image'
                         onChange={this.handleFileChange}
                     />
 
-                    <label>Evidences:</label>
+                    {this.state.existingImages.length > 0 && (
+                        <div className='evidences'>
+                            <p>Current evidences:</p>
+                            {this.state.existingImages.map((url, idx) => (
+                                <div key={idx} className='evidence-item'>
+                                    <img
+                                        src={`http://localhost:5005${url}`}
+                                        alt={`extra-${idx}`}
+                                        className='evidence-thumb'
+                                    />
+                                    <button type='button'
+                                    className='btn small'
+                                    onClick={() => this.handleDeleteImage(url)}
+                                    ><FontAwesomeIcon icon='xmark'/></button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    <label>Add new evidences:</label>
                     <input
                         type='file'
                         name='news_images'
