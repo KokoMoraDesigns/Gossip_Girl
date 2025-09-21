@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
 import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,9 +49,21 @@ export default class NewspaperDetail extends Component {
             title,
             created_at,
             updated_at,
-            content
+            content,
+            news_images
 
         } = this.state.newspaperItem;
+
+        const sliderSettings = {
+            dots: true,
+            infinite: true,
+            speed: 500, 
+            slidesToShow:1,
+            slidesToScroll: 1,
+            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 4000
+        }
 
         return (
             <div className='newspaper-detail-wrapper'>
@@ -77,6 +90,26 @@ export default class NewspaperDetail extends Component {
                     </div>
 
                     <div className='content'>{content}</div>
+
+                    {news_images && news_images.length > 0 && (
+                        <div className='extra-images' style={{ marginTop: '40px' }}>
+                            <Slider {...sliderSettings}>
+                                {news_images.map((url, idx) => (
+                                    <div key={idx}>
+                                        <img 
+                                            src={`http://localhost:5005${url}`}
+                                            alt={`extra-${idx}`}
+                                            style={{
+                                                maxHeight: '400px',
+                                                margin: 'auto',
+
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                    )}
 
                     <Link to='/newspaper'>
                         <FontAwesomeIcon icon='newspaper'/>
