@@ -33,7 +33,9 @@ export default class NewspaperManager extends Component {
     }
 
     handleEdit(item) {
-        this.setState({ editingItem: item });
+        this.setState({ editingItem: item }, () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 
     handleSuccess() {
