@@ -44,7 +44,28 @@ export default class NewspaperDetail extends Component {
         });
     }
 
+    handleDeleteImage(url) {
+        const { id } = this.state.newspaperItem;
+
+        axios.delete(`http://localhost:5005/delete_news_image/${id}`, {
+            data: { image_url: url },
+            withCredentials: true
+        })
+        .then(() => {
+            this.setState(prevState => ({
+                newspaperItem: {
+                    ...prevState.newspaperItem,
+                    news_images: prevState.newspaperItem.news_images.filter(img => img !== url)
+                }
+            }));
+        })
+        .catch(error => {
+            console.log('delete image error', error);
+        });
+    }
+
     render() {
+        
         const {
             title,
             created_at,
@@ -64,6 +85,8 @@ export default class NewspaperDetail extends Component {
             autoplay: true,
             autoplaySpeed: 4000
         }
+
+        
 
         return (
             <div className='newspaper-detail-wrapper'>
@@ -91,20 +114,27 @@ export default class NewspaperDetail extends Component {
 
                     <div className='content'>{content}</div>
 
-                    {news_images && news_images.length > 0 && (
-                        <div className='extra-images' style={{ marginTop: '40px' }}>
+                    {Array.isArray(news_images) && news_images.length > 0 && (
+                        <div className='extra-images' style={{ marginTop: '40px', width: '100%', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
                             <Slider {...sliderSettings}>
                                 {news_images.map((url, idx) => (
-                                    <div key={idx}>
+                                    <div key={`slide-${idx}`} style={{ textAlign: 'center' }}>
                                         <img 
                                             src={`http://localhost:5005${url}`}
                                             alt={`extra-${idx}`}
                                             style={{
                                                 maxHeight: '400px',
+                                                maxWidth: '100%',
                                                 margin: 'auto',
+                                                display: 'block'
 
                                             }}
                                         />
+                                        <button 
+                                            className='btn'
+                                            onClick={() => this.handleDeleteImage(url)}
+                                            style={{ marginTop: '10px', color: 'red', cursor: 'pointer' }}
+                                        >bye file</button>
                                     </div>
                                 ))}
                             </Slider>
