@@ -37,7 +37,10 @@ export default class NewspaperArchive extends Component {
                 <div className='published-news'>
                     {this.props.newsList.map(news => (
                         <div className="published-new" key={news.id}>
-                            <div className="title category"> {news.title}: {news.category}</div>
+                            <div className="tags">
+                                <div className="title"> {news.title}</div>
+                                <div className="category"> ({news.category.toLowerCase()}) </div>
+                            </div>
 
                             {news.cover_image && (
                                 <img
@@ -47,10 +50,12 @@ export default class NewspaperArchive extends Component {
                                 />
                             )}
 
+                            <div className="btn-wrapper">
 
-                            <button className='btn' onClick={() => this.props.onEdit(news)}> modify gossip </button>
-                            <button className='btn' onClick={() => this.handleDelete(news.id)}> bye gossip </button>
-                
+                                <button className='btn' onClick={() => this.props.onEdit(news)}> modify gossip </button>
+                                <button className='btn' onClick={() => this.handleDelete(news.id)}> bye gossip </button>
+                            </div>
+                    
           
                         </div>
                     ))}

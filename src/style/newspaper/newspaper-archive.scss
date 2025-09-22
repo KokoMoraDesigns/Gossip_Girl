@@ -1,0 +1,81 @@
+.newspaper-archive {
+    //background-color: $cotton;
+    
+
+    .newspaper-archive-title {
+
+        font-family: 'Estonia', serif;
+        font-size: 2.9em;
+        margin-top: 88px;
+        //margin-bottom: 44px;
+        margin-bottom: 84px;
+        display: flex;
+        justify-content: center;
+        background-color: $obsidian-black;
+        color: $cotton;
+        padding: 8px 0px;
+        box-shadow: 2px 5px 25px 2px $obsidian-black;
+
+    }
+
+    .published-news {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        place-items: center;
+        
+        
+
+        .published-new {
+
+            margin-bottom: 85px;
+            
+
+
+            .tags {
+                min-height: 25px;
+                max-width: 188px;
+                font-family: 'Cormorant', serif;
+                font-size: 1.2em;
+                text-align: center;
+                margin-bottom: 12px;
+
+                .title {
+                    font-size: 1.3rem;
+                }
+                
+
+
+                .category {
+                    font-weight: 700;
+                    margin-top: 2px;
+                } 
+
+            }
+
+            img {
+                height: 188px;
+                width: 188px;
+                margin-top: 4px;
+                
+            }
+
+            .btn-wrapper {
+
+                display: flex;
+                justify-content: space-between;
+                margin-top: 14px;
+
+                .btn {
+                    @include button();
+                    box-shadow: 2px 5px 25px 2px $obsidian-black;
+                    //box-shadow: 0px 0px 0px 0px $obsidian-black;
+                    padding: 8px;
+                    font-size: 1.3em;
+                }
+
+            }
+
+
+        }
+    }
+}

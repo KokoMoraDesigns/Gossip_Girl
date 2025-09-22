@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from 'framer-motion';
+import { fadeVariant } from "../../helpers/animations";
 
-const PageTransition = ({ children, variant }) => (
+const PageTransition = ({ children, variant= fadeVariant}) => (
     <motion.div
         initial={variant.initial}
         animate={variant.animate}
