@@ -69,18 +69,14 @@ export default class App extends Component {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
 
-        if (loggedIn && loggedInStatus === 'LOGGED_IN') {
-          return loggedIn;
+        if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
+          this.setState({ loggedInStatus: 'LOGGED_IN'});
   
-        } else if (loggedIn && loggedInStatus === 'NOT_LOGGED_IN') {
-          this.setState({
-            loggedInStatus: 'NOT_LOGGED_IN'
-          });
         } else if (!loggedIn && loggedInStatus === 'LOGGED_IN') {
           this.setState({
             loggedInStatus: 'NOT_LOGGED_IN'
           });
-        }
+        } 
       })
 
       .catch(error => {

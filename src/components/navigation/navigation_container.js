@@ -22,18 +22,18 @@ const NavigationComponent = (props) => {
 
     const handleSignOut = () => {
         axios
-            .delete('https://api.devcamp.space/logout', { withCredentials: true })
+            .post('http://localhost:5005/logout', {}, { withCredentials: true })
             .then(response => {
 
                 if (response.status === 200) {
-                    props.history.push('/');
                     props.handleSuccessfulLogout();
+                    props.history.push('/');
                 }
 
-                return response.data;
+                
             })
             .catch(error => {
-                console.log('hay un error cerrando la sesicón', error)
+                console.log('hay un error cerrando la sesión', error)
             });
     };
 
@@ -75,9 +75,9 @@ const NavigationComponent = (props) => {
             <div className='log-out'>
 
                 {props.loggedInStatus === 'LOGGED_IN' ? (
-                    <a onClick={handleSignOut}>
+                    <button onClick={handleSignOut} className='logout-btn'>
                         <FontAwesomeIcon icon='moon' />
-                    </a>
+                    </button>
                 ) : null}
 
             </div>

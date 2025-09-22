@@ -10,6 +10,7 @@
     .navigation-box {
         display: flex;
         justify-content: center;
+        margin-right: 45px;
         
 
         .navigation-link {
@@ -17,6 +18,7 @@
             font-family: "Cormorant", serif;
             font-size: 1.8rem;  
             margin: 45px;
+            
             
             
             a{
@@ -44,24 +46,31 @@
     }
 
     .log-out {
-        
-        svg {
+
+        .logout-btn {
+            background: none;
+            border: none;
             cursor: pointer;
-            margin-left: 45px;
-            font-size: 1.5em;
-            transition:all 0.75s ease-in-out;
-            filter: drop-shadow(-1px 2px 4px $obsidian-black);
+            //padding: 0.3rem;
+            transition: all 0.75s ease-in-out;
 
             
-            
 
-            
-            
-            &:hover {
-                color: $ruby-red;
-                filter: drop-shadow(4px 4px 4px $dark-maroon);
+            svg {
+                //margin-left: 45px;
+                font-size: 1.5em;
+                transition:all 0.75s ease-in-out;
+                filter: drop-shadow(-1px 2px 4px $obsidian-black);
+    
+                 
+                &:hover {
+                    color: $ruby-red;
+                    filter: drop-shadow(4px 4px 4px $dark-maroon);
+                }
             }
         }
+        
+
     }
 
     
