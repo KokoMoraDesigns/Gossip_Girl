@@ -5,6 +5,8 @@ import {
   Route
 } from 'react-router-dom';
 import axios from 'axios';
+import { AnimatePresence , motion } from 'framer-motion';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -20,10 +22,18 @@ import NewspaperManager from './pages/newspaper_manager';
 import NewspaperDetail from './newspaper/newspaper-detail';
 import NoMatch from './pages/no-match';
 import Icons from '../helpers/icons';
+import {
+  fadeVariant,
+  slideUpVariant,
+  slideLeftVariant,
+  zoomVariant
+} from '../helpers/animations';
+import PageTransition from './pages/page-transition';
 
 
 
 axios.defaults.withCredentials = true;
+
 
 export default class App extends Component {
 
@@ -114,48 +124,65 @@ export default class App extends Component {
               handleSuccessfulLogout={this.handleSuccessfulLogout}
             />
 
-            <Switch>
+            <Route 
+              render={({ location }) => (
+                <AnimatePresence exitBeforeEnter>
+                  <Switch location={location} key={location.pathname}>
 
-              <Route exact path='/' component={Home} />
+                    <Route exact path='/'>
+                      <PageTransition variant={fadeVariant}><Home /></PageTransition>
+                    </Route>
 
-              <Route
-                path='/auth'
-                render={props => (
-                  <Auth
-                    {...props}
-                    handleSuccessfulLogin={this.handleSuccessfulLogin}
-                    handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
-                  />
-                )}
-              />
+                    <Route path='/auth'>
+                      <PageTransition variant={zoomVariant}>
+                        <Auth
+                          handleSuccessfulLogin={this.handleSuccessfulLogin}
+                          handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                      />
+                      </PageTransition>
+                    </Route>
 
-              <Route path='/hi-bitches' component={AboutGossipGirl} />
+                    <Route path='/hi-bitches'>
+                      <PageTransition variant={slideUpVariant}><AboutGossipGirl /></PageTransition>
+                    </Route>      
 
-              <Route path='/anonymous-mailbox' component={AnonymousMailbox} />
+                    <Route path='/anonymous-mailbox'>
+                      <PageTransition variant={fadeVariant}><AnonymousMailbox /></PageTransition>
+                    </Route>
 
-              <Route
-                exact path='/newspaper/:news_id'
-                component={NewspaperDetail}
-              />
+                    <Route 
+                      exact 
+                      path='/newspaper/:news_id'
+                      render={props => (
+                        <PageTransition variant={slideLeftVariant}>
+                          <NewspaperDetail {...props} />
+                        </PageTransition>
+                      )}
+                    />
+                         
 
-              <Route 
-                path='/newspaper'
-                render={props => (
-                  <Newspaper {...props} loggedInStatus={this.state.loggedInStatus} />
-                )}
-              />
+                    <Route path='/newspaper'>
+                      <PageTransition variant={slideLeftVariant}>
+                        <Newspaper loggedInStatus={this.state.loggedInStatus}/>
+                      </PageTransition>
+                    </Route>
 
+                    {this.state.loggedInStatus === 'LOGGED_IN'
+                      ? this.authorizedPages().map(page => (
+                        <PageTransition key={page.key}>{page}</PageTransition>
+                      ))
+                      : null} 
 
+                      <Route>
+                        <PageTransition variant={zoomVariant}><NoMatch /></PageTransition>
+                      </Route>    
 
-              {this.state.loggedInStatus === 'LOGGED_IN' ? this.authorizedPages() : null}
+                  </Switch>
+                </AnimatePresence>
+              )}
+            />
 
-
-
-
-              <Route component={NoMatch} />
-
-
-            </Switch>
+            
 
           </div>
           
@@ -166,7 +193,7 @@ export default class App extends Component {
 
         
       </div>
-    )
+    );
   }
 }
 
