@@ -102,8 +102,11 @@ export default class App extends Component {
     return [
       <Route
         key='newspaper-manager'
-        path='/newspaper-manager'
-        component={NewspaperManager}
+        path='/newspaper-manager/:id?'
+        render={(props) => (
+          <NewspaperManager {...props} />
+        )}
+        //component={NewspaperManager}
       />
     ];
   }

@@ -20,6 +20,11 @@ export default class NewspaperManager extends Component {
 
     componentDidMount() {
         this.loadNews();
+
+        const {id} = this.props.match.params;
+        if (id) {
+            this.loadNewsItem(id);
+        }
     }
 
     loadNews() {
@@ -30,6 +35,17 @@ export default class NewspaperManager extends Component {
         .catch(error => {
             console.log('loadNews error', error);
         })
+    }
+
+    loadNewsItem(id) {
+        axios.get(`http://localhost:5005/get_news/${id}`, { withCredentials: true })
+            .then(response => {
+                this.setState({ editingItem: response.data });
+                window.scrollTo({ top:0, behavior:smooth });
+            })
+            .catch(error => {
+                console.log('loadNewsItem error', error)
+            });
     }
 
     handleEdit(item) {

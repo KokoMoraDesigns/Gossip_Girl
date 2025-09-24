@@ -14,7 +14,8 @@ export default class NewspaperDetail extends Component {
         super(props);
 
         this.state = {
-            newspaperItem: {}
+            newspaperItem: {},
+            loggedIn: false
         };
     }
 
@@ -22,6 +23,17 @@ export default class NewspaperDetail extends Component {
 
     componentDidMount(){
         this.getNewspaperItem();
+        this.checkSession();
+    }
+
+    checkSession() {
+        axios.get('http://localhost:5005/check_session', { withCredentials: true})
+        .then(response => {
+            this.setState({ loggedIn: response.data.logged_in });
+        })
+        .catch(error => {
+            console.log('checkSession error', error);
+        });
     }
 
     getNewspaperItem() {
@@ -123,9 +135,15 @@ export default class NewspaperDetail extends Component {
                             <FontAwesomeIcon icon='newspaper'/>
                         </Link>
 
-                        <Link to='/newspaper-manager'>
-                            <FontAwesomeIcon icon='feather'/>
-                        </Link>
+                        {this.state.loggedIn && (
+
+                            <Link to={`/newspaper-manager/${this.state.newspaperItem.id}`}>
+                                <FontAwesomeIcon icon='feather'/>
+                            </Link>
+
+                        )}
+
+                        
 
                     </div>
 

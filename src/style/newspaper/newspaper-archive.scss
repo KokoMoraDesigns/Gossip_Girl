@@ -1,21 +1,13 @@
 .newspaper-archive {
     //background-color: $cotton;
-    
+
 
     .newspaper-archive-title {
 
-        font-family: 'Estonia', serif;
-        font-size: 2.9em;
+        @include newspaper-manager-titles();
         margin-top: 88px;
         //margin-bottom: 44px;
-        margin-bottom: 84px;
-        display: flex;
-        justify-content: center;
-        background-color: $obsidian-black;
-        color: $cotton;
-        padding: 8px 0px;
-        box-shadow: 2px 5px 25px 2px $obsidian-black;
-
+        
     }
 
     .published-news {
@@ -79,3 +71,5 @@
         }
     }
 }
+
+

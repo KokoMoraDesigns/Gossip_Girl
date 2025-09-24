@@ -84,3 +84,16 @@
     display: flex;
     justify-content: center;
 }
+
+@mixin newspaper-manager-titles {
+    font-family: 'Estonia', serif;
+    font-size: 2.9em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 84px;
+    color: $cotton;
+    background-color: $obsidian-black;
+    padding: 8px 0px;
+    box-shadow: 2px 5px 25px 2px $obsidian-black;
+    letter-spacing: 0.8px;
+}

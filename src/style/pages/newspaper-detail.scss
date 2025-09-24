@@ -56,21 +56,32 @@
     
         }
 
-        svg {
+        .icons {
             display: flex;
             justify-self: center;
-            font-size: 1.7em;
-            margin-top: 90px;
-            color: $villa-nova;
-            transition: 1s ease-in-out;
-            //color: rgba(169, 169, 169, 0.733);
             
+
+
+            svg {
+                
+                font-size: 1.7em;
+                margin-top: 90px;
+                color: $villa-nova;
+                transition: 1s ease-in-out;
+                padding-left: 25px;
+                padding-right: 25px;
+                //color: rgba(169, 169, 169, 0.733);
+                
+            }
+    
+            svg:hover {
+                color: $obsidian-black;
+                transition: 1s ease-in-out;
+            }
+
         }
 
-        svg:hover {
-            color: $obsidian-black;
-            transition: 1s ease-in-out;
-        }
+        
     
     
     

@@ -8,8 +8,6 @@ export default function() {
 
             <NewspaperContainer />
 
-            
-
         </div>
     );
 }
