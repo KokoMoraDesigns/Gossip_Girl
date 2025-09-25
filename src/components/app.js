@@ -28,7 +28,9 @@ import {
   slideLeftVariant,
   zoomVariant
 } from '../helpers/animations';
-import PageTransition from './pages/page-transition';
+import PageTransition from './transition/page-transition';
+import TransitionOverlay from './transition/transition-overlay';
+import DiagonalOverlay from './transition/diagonal-overlay';
 
 
 
@@ -130,57 +132,63 @@ export default class App extends Component {
             <Route 
               render={({ location }) => (
                 <AnimatePresence exitBeforeEnter>
-                  <Switch location={location} key={location.pathname}>
+                  <motion.div
+                    key={location.pathname}
+                    style={{ position: 'relative' }}
+                  >
+                    <TransitionOverlay />
+                    <Switch location={location} key={location.pathname}>
 
-                    <Route exact path='/'>
-                      <PageTransition variant={fadeVariant}><Home /></PageTransition>
-                    </Route>
+                      <Route exact path='/'>
+                        <PageTransition ><Home /></PageTransition>
+                      </Route>
 
-                    <Route path='/auth'>
-                      <PageTransition variant={zoomVariant}>
-                        <Auth
-                          handleSuccessfulLogin={this.handleSuccessfulLogin}
-                          handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
-                      />
-                      </PageTransition>
-                    </Route>
-
-                    <Route path='/hi-bitches'>
-                      <PageTransition variant={slideUpVariant}><AboutGossipGirl /></PageTransition>
-                    </Route>      
-
-                    <Route path='/anonymous-mailbox'>
-                      <PageTransition variant={fadeVariant}><AnonymousMailbox /></PageTransition>
-                    </Route>
-
-                    <Route 
-                      exact 
-                      path='/newspaper/:news_id'
-                      render={props => (
-                        <PageTransition variant={slideLeftVariant}>
-                          <NewspaperDetail {...props} />
+                      <Route path='/auth'>
+                        <PageTransition >
+                          <Auth
+                            handleSuccessfulLogin={this.handleSuccessfulLogin}
+                            handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+                        />
                         </PageTransition>
-                      )}
-                    />
-                         
+                      </Route>
 
-                    <Route path='/newspaper'>
-                      <PageTransition variant={slideLeftVariant}>
-                        <Newspaper loggedInStatus={this.state.loggedInStatus}/>
-                      </PageTransition>
-                    </Route>
+                      <Route path='/hi-bitches'>
+                        <PageTransition variant={slideUpVariant}><AboutGossipGirl /></PageTransition>
+                      </Route>      
 
-                    {this.state.loggedInStatus === 'LOGGED_IN'
-                      ? this.authorizedPages().map(page => (
-                        <PageTransition key={page.key}>{page}</PageTransition>
-                      ))
-                      : null} 
+                      <Route path='/anonymous-mailbox'>
+                        <PageTransition variant={slideUpVariant}><AnonymousMailbox /></PageTransition>
+                      </Route>
 
-                      <Route>
-                        <PageTransition variant={zoomVariant}><NoMatch /></PageTransition>
-                      </Route>    
+                      <Route 
+                        exact 
+                        path='/newspaper/:news_id'
+                        render={props => (
+                          <PageTransition variant={slideUpVariant}>
+                            <NewspaperDetail {...props} />
+                          </PageTransition>
+                        )}
+                      />
+                          
 
-                  </Switch>
+                      <Route path='/newspaper'>
+                        <PageTransition variant={slideUpVariant}>
+                          <Newspaper loggedInStatus={this.state.loggedInStatus}/>
+                        </PageTransition>
+                      </Route>
+
+                      {this.state.loggedInStatus === 'LOGGED_IN'
+                        ? this.authorizedPages().map(page => (
+                          <PageTransition key={page.key} variant={slideUpVariant} >{page}</PageTransition>
+                        ))
+                        : null} 
+
+                        <Route>
+                          <PageTransition ><NoMatch /></PageTransition>
+                        </Route>    
+
+                    </Switch>
+                  </motion.div>
                 </AnimatePresence>
               )}
             />

@@ -55,6 +55,22 @@
 
     
         }
+        
+        .extra-images {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+
+            .slick-dots li{
+                height: 5px;
+              
+                
+                
+            }
+            
+        }
 
         .icons {
             display: flex;

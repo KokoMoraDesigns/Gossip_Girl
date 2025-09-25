@@ -74,7 +74,7 @@ export default class NewspaperDetail extends Component {
             speed: 500, 
             slidesToShow:1,
             slidesToScroll: 1,
-            arrows: true,
+            arrows: false,
             autoplay: true,
             autoplaySpeed: 4000
         }
@@ -108,7 +108,7 @@ export default class NewspaperDetail extends Component {
                     <div className='content'>{content}</div>
 
                     {Array.isArray(news_images) && news_images.length > 0 && (
-                        <div className='extra-images' style={{ marginTop: '40px', width: '100%', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        <div className='extra-images'>
                             <Slider {...sliderSettings}>
                                 {news_images.map((url, idx) => (
                                     <div key={`slide-${idx}`} style={{ textAlign: 'center' }}>
