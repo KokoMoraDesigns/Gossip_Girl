@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 
 import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -15,7 +16,8 @@ export default class NewspaperDetail extends Component {
 
         this.state = {
             newspaperItem: {},
-            loggedIn: false
+            loggedIn: false,
+            notFound: false
         };
     }
 
@@ -51,13 +53,17 @@ export default class NewspaperDetail extends Component {
         })
         .catch(error => {
             console.log('getNewspaperItem error', error);
-            this.props.history.push('/no-match');
+            this.setState({ notFound: true });
 
         });
     }
 
 
     render() {
+
+        if (this.state.notFound) {
+            return <Redirect to ='/no-match' />;
+        }
         
         const {
             title,

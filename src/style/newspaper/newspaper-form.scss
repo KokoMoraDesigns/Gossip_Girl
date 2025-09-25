@@ -1,26 +1,28 @@
 .newspaper-form{
 
-    width: 760px;
-    margin-left: auto;
-    margin-right: auto;
+    //width: 760px;
+    //margin-left: auto;
+    //margin-right: auto;
 
 
     .newspaper-form-title {
         @include newspaper-manager-titles();
-        margin-top: 84px;
+        //margin-top: 84px;
+        margin-top: 25px;
         //width: 35%;
         //margin-left: auto;
         //margin-right: auto;
         //background-color: $cotton;
         //color: $obsidian-black;
         //box-shadow: 2px 5px 25px 2px $villa-nova;
-        background-color: $obsidian-black;
-        color: $cotton;
-        box-shadow: 2px 5px 25px 2px $obsidian-black;
+        //background-color: $obsidian-black;
+        //color: $cotton;
+        //box-shadow: 2px 5px 25px 2px $obsidian-black;
         //color: $obsidian-black;
         //background-color: transparent;
         //box-shadow: 0px 0px 0px 0px;
         //margin-bottom: 10px;
+        
 
         
 
@@ -68,7 +70,7 @@
 
             display: flex;
             justify-content: space-around;
-            margin-top: 25px;
+            //margin-top: 25px;
             margin-bottom: 25px;
             //flex-direction: column;
             //align-items: center;
@@ -206,9 +208,11 @@
         .btn {
             @include button();
             width: 25%;
-            margin-left: 40%;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 29px;
-            //width: 115px;
+            
+            
             
 
         }
@@ -217,9 +221,9 @@
     }
 
     p{
-        font-family: 'Cormorant', serif;
+        font-family: 'Italianno', serif;
         font-weight: 300;
-        font-size: 1.4rem;
+        font-size: 2rem;
         margin-top: 44px;
         display: flex;
         justify-content: center;

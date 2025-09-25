@@ -177,13 +177,17 @@ export default class App extends Component {
                         </PageTransition>
                       </Route>
 
+                      <Route exact path='/no-match'>
+                        <PageTransition><NoMatch /></PageTransition>
+                      </Route>
+
                       {this.state.loggedInStatus === 'LOGGED_IN'
                         ? this.authorizedPages().map(page => (
                           <PageTransition key={page.key} variant={slideUpVariant} >{page}</PageTransition>
                         ))
                         : null} 
 
-                        <Route>
+                        <Route path='*'>
                           <PageTransition ><NoMatch /></PageTransition>
                         </Route>    
 
