@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Login from '../auth/login';
 
 
 
-export default class Auth extends Component {
+
+class Auth extends Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ export default class Auth extends Component {
 
     handleSuccessfulAuth() {
         this.props.handleSuccessfulLogin();
-        this.props.history.push('/hi-bitches');
+        this.props.history.push('/');
     }
 
     handleUnsuccessfulAuth() {
@@ -35,3 +37,5 @@ export default class Auth extends Component {
     }
 }
  
+
+export default withRouter(Auth);

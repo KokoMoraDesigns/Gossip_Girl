@@ -26,6 +26,8 @@ export default class Login extends Component {
     }
 
     handleSubmit(event) {
+
+        event.preventDefault();
         
         axios
             .post(
@@ -34,25 +36,24 @@ export default class Login extends Component {
                     password: this.state.password
                 }, { withCredentials: true })
             .then(response => {
-                if (response.status === 200) {
+                if (response.data.logged_in) {
                     this.props.handleSuccessfulAuth();
                 }   else {
                     this.setState({
-                        errorText: 'wrong email or password'
+                        errorText: response.data.message
                     });
                     this.props.handleUnsuccessfulAuth();
                 }
             })
             .catch(error => {
+                console.log('login error', error);
                 this.setState({
-                    errorText: 'an error ocurred'
+                    errorText: 'an error ocurred, please try again'
                 });
                 this.props.handleUnsuccessfulAuth();
                 
             });
-
-
-        event.preventDefault();
+        
     }
 
 
