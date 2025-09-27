@@ -231,3 +231,55 @@
 
     
 }
+
+@media (max-width:788px){
+    .newspaper-form{
+        .newspaper-form-title{
+            margin-top: 0px;
+            padding: 29px;
+            border-top: 1px dashed $cotton;
+
+        }
+
+        .newspaper-form-items{
+
+            //display: flex;
+            //justify-content: center;
+            display: flex;
+            align-items:center ;
+            
+            input, textarea, select{
+                width: 344px;
+                text-align: justify;
+                
+                //@include default-flex();
+                
+                //margin-left: 75px;
+                //margin-right: 75px;
+            }
+
+            select{
+                margin-top: 25px;
+            }
+
+            .select-image-wrapper{
+                
+                .select-image{
+                    //margin-right: 25px;
+                    padding: 8px;
+
+                    
+
+                    
+                    
+                }
+            }
+
+            
+
+           
+
+
+        }
+    }
+}

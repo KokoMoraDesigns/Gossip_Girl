@@ -7,7 +7,7 @@
     .right-column {
         margin: 75px;
         text-align: center;
-        font-family: 'cormorant', serif;
+        font-family: 'Cormorant', serif;
         font-size: 1.5rem;
 
         p{
@@ -15,12 +15,47 @@
         }
 
         .edit-paragraph {
-            font-family: 'estonia', serif;
+            font-family: 'Estonia', serif;
             font-size: 2.5rem;
             
         }
 
+
     }
 
+    
+
+
+}
+
+@media (max-width:788px) {
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .left-column {
+            height: 650px;
+            box-shadow: 2px 5px 25px 2px $obsidian-black;
+            //width: 100vw;
+        }
+
+        .right-column{
+            font-size: 1.6rem;
+            margin-top: 45px;
+
+            p{
+                margin-bottom: 29px;
+            }
+
+            .edit-paragraph {
+                font-size: 2.7rem;
+                margin-top: 45px;
+                
+            }
+        }
+
+
+    }
 
 }

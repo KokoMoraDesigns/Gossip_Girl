@@ -73,3 +73,19 @@
 }
 
 
+@media (max-width:788px){
+    .newspaper-archive{
+        .newspaper-archive-title{
+            padding: 29px;
+            margin-top: 128px;
+            
+        }
+
+        .published-news{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            
+
+        }
+    }
+}

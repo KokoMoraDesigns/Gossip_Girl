@@ -124,3 +124,62 @@
 
 
 }
+
+
+
+@media (max-width:788px) {
+
+    .newspaper-detail-wrapper {
+
+        display: flex;
+        justify-content: center;
+
+        .newspaper-detail-content {
+
+            .title{
+                margin-bottom: 47px;
+                border-bottom: transparent;
+                border-top: 1px dashed $cotton;
+                background-color: $obsidian-black;
+                margin: 0px;
+                padding: 47px;
+                color: $cotton;
+            
+            }
+
+            img{
+                height: 100%;
+                width: 100%;
+            }
+
+            .dates{
+                margin-top: 67px;
+                margin-bottom: 35px;
+                font-size: 1.2em;
+            }
+
+            .content{
+                font-size: 1.4em;
+                
+
+            }
+
+            .extra-images {
+
+                //width: 388px;
+                width: 100vw;
+                margin-bottom: 24px;
+                margin-top: 74px;
+                
+                
+                
+            }
+
+            .logo{
+                margin-bottom: 39px;
+            }
+
+
+        }
+    }
+}

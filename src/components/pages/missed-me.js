@@ -42,9 +42,19 @@ export default function() {
                     my mom and older sister... you will be a baddie too! Isn't it much more fun to be a free sinner than a fearful carper? How was it? I can't recall... Oh, yeah: 
                     'good girls go to heaven, bad girls go everywhere'. So let's all sin under the spotlight together! I can promise you: you will be much happier.</p><p className='edit-paragraph'> Didn't you 
                     wanted to be the main character of your life? Welcome to the movie... </p>
+
+                    <div className='logo'>
+
+                        <div className='logo-part-one'>xoxo,</div>
+
+                        <div className='logo-part-two'>Gossip Girl</div>
+
+                    </div>
                 
 
             </div>
+
+            
 
         </div>
     );

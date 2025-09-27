@@ -56,3 +56,32 @@
         }
     }
 }
+
+@media (max-width:788px){
+    .auth-wrapper{
+        //display: flex;
+        //justify-content: center;
+        //display: grid;
+        //grid-template-columns: 1fr;
+        .content-wrapper{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-left: 24px;
+            margin-right: 24px;
+
+            .site-name{
+                font-size: 5rem;
+            }
+
+            .handle-error{
+                margin-top: 15px;
+                margin-bottom: 35px;
+            }
+            
+            .auth-form-wrapper{
+                margin-top: 0px;
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@
     justify-content: center;
     //height: 125px;
     align-items: center;
+    
    
 
     .navigation-box {
@@ -12,23 +13,28 @@
         justify-content: center;
         margin-right: 45px;
         
+        
 
         .navigation-link {
 
             font-family: "Cormorant", serif;
             font-size: 1.8rem;  
             margin: 45px;
+            background-color: transparent;
+            //transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+            
             
             
             
             a{
                 text-decoration: none;
                 color: $obsidian-black;
-                transition: all 0.7s ease-in-out;
+                //transition: color 0.7s ease-in-out;
                 cursor: pointer;
 
                 &:hover {
                     color: $cherry-red;
+                    transition: color 0.7s ease-in-out;
                 
                 }
                 
@@ -36,7 +42,9 @@
             }
 
             .nav-link-active {
-                color: $cherry-red; 
+                color: $cherry-red;
+                transition: color 0.7s ease-in-out;
+                
             }
      
         
@@ -51,19 +59,25 @@
             background: none;
             border: none;
             cursor: pointer;
-            transition: all 0.75s ease-in-out;
+            //transition: color 0.75s ease-in-out, filter 0.75s ease-in-out;
+
+            .text {
+                display: none;
+            }
 
             
 
             svg {
                 font-size: 1.2em;
-                transition:all 0.75s ease-in-out;
+                transition:color 0.75s ease-in-out, filter 0.75s ease-in-out;
                 filter: drop-shadow(-1px 2px 4px $obsidian-black);
+                margin-right: 20px;
     
                  
                 &:hover {
                     color: $ruby-red;
                     filter: drop-shadow(4px 4px 4px $dark-maroon);
+                    
                 }
             }
         }
@@ -72,4 +86,122 @@
     }
 
     
+}
+
+@media (max-width:788px) {
+    .navigation-wrapper {
+        //background-color: red;
+        //display: flex;
+        //flex-direction: column;
+        //background-color: $obsidian-black;
+        
+        //width: 100%;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        //background-color: $obsidian-black;
+        background-color: $obsidian-black;
+        
+        
+    
+
+        .navigation-box {
+            
+            //display: flex;
+            //flex-direction: column;
+            //align-items: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            margin-right: 0px;
+            
+
+            
+
+
+            .navigation-link {
+
+                //height: 5px;
+                margin: 0px;
+                display: flex;
+                justify-content: center;
+                max-height: 25px;
+                align-items: center;
+                background-color: $obsidian-black;
+                padding: 22px 0px;
+                font-family: 'Italianno', serif;
+                font-size: 2.4em;
+                transition: none;
+                width: 100%;
+                //border: 1px solid transparent;
+
+                a{
+                    text-decoration: none;
+                    color: $cotton;
+                    padding: 22px; 
+                    width: 100%;
+                    
+                    
+                }
+        
+                &:hover {
+                    background-color: $cotton;
+                    transition: background-color 1.2s ease-in-out;
+                    //transition: all 1.2s ease-in-out;
+                    //text-shadow: 4px 4px 4px $cotton;
+
+        
+                    a {
+                        color: $obsidian-black;
+                        transition: color 1.2s ease-in-out;
+                        //transition: all 1.2s ease-in-out;
+                    }
+                }
+
+                .nav-link-active {
+                    color: $obsidian-black;
+                    background-color: $cotton;
+                    //transition: background-color 1.2s ease-in-out, color 1.2s ease-in-out;
+                    transition: none;
+
+                    
+                    
+                    
+                    
+                    
+                }
+                
+
+            }
+            
+        }
+
+        .log-out {
+            margin: 25px 0px;
+
+            .logout-btn {
+
+                .text {
+                    display: inline-block;
+                    color: $cotton;
+                    font-family: 'Estonia', serif;
+                    font-size: 1.8em;
+                }
+
+                svg {
+                    display: none;
+                }
+
+                &:hover {
+                    text-shadow:4px 4px 4px $cotton;
+                }
+            }
+
+
+            
+            
+
+
+        }
+    }
 }

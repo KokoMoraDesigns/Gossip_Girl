@@ -39,3 +39,23 @@
         }
     }
 }
+
+@media (max-width:788px){
+    .no-match-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .image-space-left{
+            width: 100vw;
+            height: 100vh;
+            box-shadow: 5px 8px 40px 8px $obsidian-black;
+        }
+
+        .home-content{
+
+            .logo{
+                margin-bottom: 28px;
+            }
+        }
+    }
+}

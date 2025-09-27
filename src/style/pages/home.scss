@@ -26,3 +26,30 @@
 
 }
 
+@media (max-width:788px) {
+
+    .home-wrapper {
+
+       .home-content{
+        margin: 0px 20px;
+        text-align: center;
+
+        .quote {
+            height: 40vh;
+            align-items: center;
+        }
+
+        .logo{
+            margin-bottom: 24px;
+            .logo-part-one {
+                font-size: 4rem;
+            }
+
+            .logo-part-two {
+                font-size: 6rem;
+            }
+        }
+       }
+    }
+}
+

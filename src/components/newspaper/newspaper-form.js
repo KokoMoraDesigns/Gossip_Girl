@@ -254,7 +254,7 @@ export default class NewspaperForm extends Component {
                     
 
 
-                    <button type='submit' className='btn'> {this.props.editingItem ? 'Ooops, I did it again' : 'May the chaos arise'}</button>
+                    <button type='submit' className='btn'> {this.props.editingItem ? 'Ooops... I did it again' : 'May the chaos arise'}</button>
                 </form>
 
                 {this.state.message && <p>{this.state.message}</p>}

@@ -16,6 +16,7 @@ export default class NewspaperDetail extends Component {
 
         this.state = {
             newspaperItem: {},
+            isMobile: window.matchMedia('(max-width: 788px)').matches,
             loggedIn: false,
             notFound: false
         };
@@ -26,6 +27,16 @@ export default class NewspaperDetail extends Component {
     componentDidMount(){
         this.getNewspaperItem();
         this.checkSession();
+        this.mediaQuery = window.matchMedia('(max-width: 788px)');
+        this.mediaQuery.addListener(this.handleResize.bind(this))
+    }
+
+    componentWillUnmount() {
+        this.mediaQuery.removeListener(this.handleResize.bind(this));
+    }
+
+    handleResize(e) {
+        this.setState({ isMobile: e.matches });
     }
 
     checkSession() {
@@ -70,7 +81,8 @@ export default class NewspaperDetail extends Component {
             created_at,
             updated_at,
             content,
-            news_images
+            news_images,
+            cover_image
 
         } = this.state.newspaperItem;
 
@@ -103,6 +115,12 @@ export default class NewspaperDetail extends Component {
 
 
                     <div className='title'>{title}</div>
+
+                    {this.state.isMobile && cover_image && (
+                        <div className='cover-image'>
+                            <img src={`http://localhost:5005${cover_image}`} alt={title} />
+                        </div>
+                    )}
 
                     <div className='dates'>
                         {updated_at

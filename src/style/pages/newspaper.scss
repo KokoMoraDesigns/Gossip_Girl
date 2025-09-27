@@ -33,6 +33,8 @@
 
             position: relative;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
             
             .newspaper-image-background{
                 background-size:cover;
@@ -95,5 +97,20 @@
 .image-blur{
     transition: all 1s ease-in-out;
     filter: brightness(25%);
+
+}
+
+@media (max-width:788px) {
+    .newspaper-wrapper{
+        margin-top: 0px;
+
+        
+        .newspaper-items-wrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+
+    
+        }
+    }
 
 }

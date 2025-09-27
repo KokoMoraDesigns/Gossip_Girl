@@ -76,7 +76,14 @@ const NavigationComponent = (props) => {
 
                 {props.loggedInStatus === 'LOGGED_IN' ? (
                     <button onClick={handleSignOut} className='logout-btn'>
+
+                    
                         <FontAwesomeIcon icon='moon' />
+
+                        <div className='text'>may the queen rest</div>
+
+    
+                        
                     </button>
                 ) : null}
 
