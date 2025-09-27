@@ -187,7 +187,7 @@ export default class App extends Component {
                         ))
                         : null} 
 
-                        <Route path='*'>
+                        <Route>
                           <PageTransition ><NoMatch /></PageTransition>
                         </Route>    
 
