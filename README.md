@@ -14,15 +14,15 @@ Gossip Girl is the modern version of the tv show's Gossip Girl. The tv show, set
 
 ## Project structure
 
-Home 
+* Home 
 
-Missed me? --> kind of 'about me' page
+* Missed me? --> kind of 'about me' page
 
-Newspaper --> where all the news are published (you can filter them by categories: parents, classmates, teachers, or everyone)
+* Newspaper --> where all the news are published (you can filter them by categories: parents, classmates, teachers, or everyone)
 
-Newspaper manager --> this is a hidden route, you can only see it if you are Gossip Girl; from here you can pusblish, edit, and delete the news.
+* Newspaper manager --> this is a hidden route, you can only see it if you are Gossip Girl; from here you can pusblish, edit, and delete the news.
 
-Anonymous mailbox --> kind of 'contact me' page
+* Anonymous mailbox --> kind of 'contact me' page
 
 <br>
 
@@ -99,10 +99,12 @@ Now you should have the backend running in http://localhost:5005
 ### Frontend configuration
 
 * install the dependencies
+  
   ``npm install``
   
 * run it
-  ``npm run install``
+  
+  ``npm run start``
 
 Now you should have the frontend running in http://localhost:3001
 
