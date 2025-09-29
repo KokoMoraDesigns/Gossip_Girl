@@ -1,17 +1,14 @@
 
 .navigation-wrapper {
 
-    display: flex;
-    justify-content: center;
-    //height: 125px;
+    @include default-flex();
     align-items: center;
     text-align: center;
     
    
 
     .navigation-box {
-        display: flex;
-        justify-content: center;
+        @include default-flex();
         margin-right: 45px;
         
         
@@ -22,7 +19,6 @@
             font-size: 1.8rem;  
             margin: 45px;
             background-color: transparent;
-            //transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
             
             
             
@@ -30,7 +26,6 @@
             a{
                 text-decoration: none;
                 color: $obsidian-black;
-                //transition: color 0.7s ease-in-out;
                 cursor: pointer;
 
                 &:hover {
@@ -60,7 +55,6 @@
             background: none;
             border: none;
             cursor: pointer;
-            //transition: color 0.75s ease-in-out, filter 0.75s ease-in-out;
 
             .text {
                 display: none;
@@ -91,16 +85,9 @@
 
 @media (max-width:788px) {
     .navigation-wrapper {
-        //background-color: red;
-        //display: flex;
-        //flex-direction: column;
-        //background-color: $obsidian-black;
-        
-        //width: 100%;
+
         text-align: center;
-        display: grid;
-        grid-template-columns: 1fr;
-        //background-color: $obsidian-black;
+        @include mobile-page-disposition();
         background-color: $obsidian-black;
         
         
@@ -108,11 +95,7 @@
 
         .navigation-box {
             
-            //display: flex;
-            //flex-direction: column;
-            //align-items: center;
-            display: grid;
-            grid-template-columns: 1fr;
+            @include mobile-page-disposition();
             align-items: center;
             margin-right: 0px;
             
@@ -122,10 +105,8 @@
 
             .navigation-link {
 
-                //height: 5px;
                 margin: 0px;
-                display: flex;
-                justify-content: center;
+                @include default-flex();
                 max-height: 25px;
                 align-items: center;
                 background-color: $obsidian-black;
@@ -134,7 +115,6 @@
                 font-size: 2.4em;
                 transition: none;
                 width: 100%;
-                //border: 1px solid transparent;
 
                 a{
                     text-decoration: none;
@@ -148,21 +128,17 @@
                 &:hover {
                     background-color: $cotton;
                     transition: background-color 1.2s ease-in-out;
-                    //transition: all 1.2s ease-in-out;
-                    //text-shadow: 4px 4px 4px $cotton;
 
         
                     a {
                         color: $obsidian-black;
                         transition: color 1.2s ease-in-out;
-                        //transition: all 1.2s ease-in-out;
                     }
                 }
 
                 .nav-link-active {
                     color: $obsidian-black;
                     background-color: $cotton;
-                    //transition: background-color 1.2s ease-in-out, color 1.2s ease-in-out;
                     transition: none;
 
                     

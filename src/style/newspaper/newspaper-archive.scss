@@ -1,12 +1,9 @@
 .newspaper-archive {
-    //background-color: $cotton;
-
 
     .newspaper-archive-title {
 
         @include newspaper-manager-titles();
         margin-top: 88px;
-        //margin-bottom: 44px;
         
     }
 
@@ -20,8 +17,6 @@
         .published-new {
 
             margin-bottom: 85px;
-            
-
 
             .tags {
                 min-height: 25px;
@@ -60,7 +55,6 @@
                 .btn {
                     @include button();
                     box-shadow: 2px 5px 25px 2px $obsidian-black;
-                    //box-shadow: 0px 0px 0px 0px $obsidian-black;
                     padding: 8px;
                     font-size: 1.3em;
                 }
@@ -84,8 +78,6 @@
         .published-news{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            
-
         }
     }
 }

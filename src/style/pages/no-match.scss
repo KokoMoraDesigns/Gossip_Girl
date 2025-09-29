@@ -1,7 +1,5 @@
 .no-match-wrapper{
     @include page-disposition();
-    //display: grid;
-    //grid-template-columns: 1.5fr 2fr 1.5fr;
     height: 700.5px;
     
    
@@ -35,7 +33,6 @@
         .btn{
 
             @include button();
-
             position: absolute;
             top:30%;
             left: 50%;
@@ -48,8 +45,7 @@
 
 @media (max-width:788px){
     .no-match-wrapper{
-        display: grid;
-        grid-template-columns: 1fr;
+        @include mobile-page-disposition();
 
         .image-space-left{
             width: 100vw;

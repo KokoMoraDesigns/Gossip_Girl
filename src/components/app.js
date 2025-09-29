@@ -12,7 +12,6 @@ import 'slick-carousel/slick/slick-theme.css';
 
 
 import NavigationContainer from './navigation/navigation_container';
-// import Portada from './pages/portada';
 import Home from './pages/home';
 import AboutGossipGirl from './pages/missed-me';
 import Auth from './pages/auth';
@@ -23,14 +22,13 @@ import NewspaperDetail from './newspaper/newspaper-detail';
 import NoMatch from './pages/no-match';
 import Icons from '../helpers/icons';
 import {
-  fadeVariant,
-  slideUpVariant,
-  slideLeftVariant,
-  zoomVariant
+  
+  slideUpVariant
+  
 } from '../helpers/animations';
 import PageTransition from './transition/page-transition';
 import TransitionOverlay from './transition/transition-overlay';
-import DiagonalOverlay from './transition/diagonal-overlay';
+
 
 
 
@@ -108,7 +106,7 @@ export default class App extends Component {
         render={(props) => (
           <NewspaperManager {...props} />
         )}
-        //component={NewspaperManager}
+        
       />
     ];
   }

@@ -1,19 +1,17 @@
 @mixin logo {
     
-    //margin-top: 340px;
-
 
     .logo-part-one {
         font-family: 'Estonia', serif;
-        font-size: 5rem;
-        display: flex;
-        justify-self: center;
-            
+        font-size: 5rem;     
     }
 
     .logo-part-two {
         font-family: 'Italianno', serif;
-        font-size: 7rem;
+        font-size: 7rem;  
+    }
+
+    .logo-part-one, .logo-part-two {
         display: flex;
         justify-self: center;
     }
@@ -23,7 +21,7 @@
 
 @mixin button {
 
-    //background-color: $ruby-red;
+    
     color: $cotton;
     font-family: 'Cormorant', serif;
     cursor: pointer;
@@ -31,15 +29,12 @@
     font-size: 1.5rem;
     border: 1px solid transparent;
     transition: all 1s ease-in-out;
-    //box-shadow: 5px 5px 15px 5px $dark-maroon;
     background-color: $obsidian-black;
     box-shadow: 5px 5px 15px 5px $obsidian-black;
 
 
     &:hover {
-        //background-color: $obsidian-black;
         color: $cotton;
-        //box-shadow: 5px 5px 15px 5px $obsidian-black;
         background-color: $maroon;
         box-shadow: 5px 5px 15px 5px $dark-maroon;
         transition: all 1s ease-in-out;
@@ -78,6 +73,11 @@
 @mixin page-disposition {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+}
+
+@mixin mobile-page-disposition {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 @mixin default-flex {

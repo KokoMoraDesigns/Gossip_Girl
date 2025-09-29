@@ -19,8 +19,7 @@
 
         .handle-error {
             font-size: 2em;
-            display: flex;
-            justify-content: center;
+            @include default-flex();
             margin-bottom: 15px;
         }
 
@@ -30,8 +29,7 @@
             margin-top: 45px;
 
             .form {
-                display: flex;
-                justify-content: center;
+                @include default-flex();
                 padding-bottom: 25px;
 
                 svg {
@@ -59,13 +57,9 @@
 
 @media (max-width:788px){
     .auth-wrapper{
-        //display: flex;
-        //justify-content: center;
-        //display: grid;
-        //grid-template-columns: 1fr;
+    
         .content-wrapper{
-            display: flex;
-            justify-content: center;
+            @include default-flex();
             text-align: center;
             margin-left: 24px;
             margin-right: 24px;

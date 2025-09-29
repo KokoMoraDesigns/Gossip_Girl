@@ -4,9 +4,9 @@
 
     .right-column {
 
-        display: flex;
+        @include default-flex();
         flex-direction: column;
-        justify-content: center;
+
 
         .text-title, .text-pd {
 
@@ -22,8 +22,7 @@
 
 
         .contact-info {
-            display: flex;
-            justify-content: center;
+            @include default-flex();
             margin-top: 40px;
 
             svg {
