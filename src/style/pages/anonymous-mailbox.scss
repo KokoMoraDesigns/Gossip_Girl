@@ -34,7 +34,8 @@
 
         .logo {
             @include logo();
-            margin-top: 72.5px;
+            margin-top: 32.5px;
+            margin-bottom: 21.5px;
             
             .logo-part-one {
                 font-size: 3rem;
