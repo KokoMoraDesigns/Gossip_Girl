@@ -53,6 +53,8 @@ export default function() {
                     <div className='logo-part-two'>Gossip Girl</div>
 
                 </div>
+
+                
                 
 
             </div>
