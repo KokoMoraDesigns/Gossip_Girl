@@ -4,15 +4,31 @@
 
     .home-content {
 
-
+        height: 573px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
     
 
         .quote {
             font-family: 'Estonia', serif;
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             display: flex;
-            justify-self: center;
+            flex-direction: column;
+            //justify-content: center;
+            //justify-self: center;
             margin-top: 40px;
+            text-align: center;
+            line-height: 1.4em;
+            letter-spacing: 0.045em;
+            //height: 50%;
+            //align-items: center;
+
+            p{
+                margin-bottom: 25px;
+            }
+
+            
 
         }
         
@@ -33,22 +49,23 @@
        .home-content{
         margin: 0px 20px;
         text-align: center;
+      
 
-        .quote {
-            height: 40vh;
-            align-items: center;
-        }
-
-        .logo{
-            margin-bottom: 24px;
-            .logo-part-one {
-                font-size: 4rem;
+            .quote {
+                height: 40vh;
+                align-items: center;
             }
 
-            .logo-part-two {
-                font-size: 6rem;
+            .logo{
+                margin-bottom: 24px;
+                .logo-part-one {
+                    font-size: 4rem;
+                }
+
+                .logo-part-two {
+                    font-size: 6rem;
+                }
             }
-        }
        }
     }
 }

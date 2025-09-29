@@ -16,7 +16,43 @@ export default function() {
 
             <div className='home-content'>
 
-                <div className='quote'>yadayada</div>
+                <div className='quote'> 
+
+                    <p>
+
+                        Between the whispers of the city <br/>
+
+                        and the screaming of the night <br/>
+
+                        there is a song crying from a rooftop. <br/>
+
+                    </p>
+
+                    <p>
+
+                        Nobody speaks in the darkness <br/>
+
+                        and yet <br/>
+
+                        everybody is deafened by the gloom <br/>
+
+
+                    </p>
+
+                    <p>
+                        Nobody speaks in the darkness <br/>
+
+                        and yet 
+                    </p>
+
+                    
+
+                    
+
+                    
+
+
+                </div>
 
                 <div className='logo'>
 
