@@ -1,5 +1,3 @@
-import { animate } from "framer-motion";
-import { duration } from "moment";
 
 export const fadeVariant = {
     initial: { opacity: 0 },
