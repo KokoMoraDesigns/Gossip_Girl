@@ -2,11 +2,16 @@
     @include page-disposition();
     //display: grid;
     //grid-template-columns: 1.5fr 2fr 1.5fr;
+    height: 700.5px;
+    
    
 
     .home-content{
         position: relative;
         margin-top: 82px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         
 
         .text {
@@ -24,6 +29,7 @@
 
         .logo {
             @include logo();
+            
         }
 
         .btn{
