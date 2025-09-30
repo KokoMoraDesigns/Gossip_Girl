@@ -28,7 +28,7 @@ export default class NewspaperManager extends Component {
     }
 
     loadNews() {
-        axios.get('http://localhost:5005/get_news', { withCredentials: true })
+        axios.get('https://gossip-girl-backend.onrender.com/get_news', { withCredentials: true })
         .then(response => {
             this.setState({ newsList: response.data.newspaper_items })
         })
@@ -38,7 +38,7 @@ export default class NewspaperManager extends Component {
     }
 
     loadNewsItem(id) {
-        axios.get(`http://localhost:5005/get_news/${id}`, { withCredentials: true })
+        axios.get(`https://gossip-girl-backend.onrender.com/get_news/${id}`, { withCredentials: true })
             .then(response => {
                 this.setState({ editingItem: response.data });
                 window.scrollTo({ top:0, behavior:smooth });

@@ -72,7 +72,7 @@ export default class App extends Component {
   checkLoginStatus() {
 
     return axios
-      .get('http://localhost:5005/check_session', {
+      .get('https://gossip-girl-backend.onrender.com/check_session', {
         withCredentials:true
       })
       .then(response => {

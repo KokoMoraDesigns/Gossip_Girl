@@ -22,7 +22,7 @@ const NavigationComponent = (props) => {
 
     const handleSignOut = () => {
         axios
-            .post('http://localhost:5005/logout', {}, { withCredentials: true })
+            .post('https://gossip-girl-backend.onrender.com/logout', {}, { withCredentials: true })
             .then(response => {
 
                 if (response.status === 200) {

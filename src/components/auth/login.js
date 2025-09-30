@@ -31,7 +31,7 @@ export default class Login extends Component {
         
         axios
             .post(
-                'http://localhost:5005/login', {
+                'https://gossip-girl-backend.onrender.com/login', {
                     email: this.state.email,
                     password: this.state.password
                 }, { withCredentials: true })

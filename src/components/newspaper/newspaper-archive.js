@@ -16,7 +16,7 @@ export default class NewspaperArchive extends Component {
     handleDelete(id) {
         if (!window.confirm('are you sure you want to remove this gossip?')) return;
 
-        axios.delete(`http://localhost:5005/delete_news/${id}`, { withCredentials: true })
+        axios.delete(`https://gossip-girl-backend.onrender.com/delete_news/${id}`, { withCredentials: true })
         .then(() => {
             this.props.onDelete();
         })
@@ -44,7 +44,7 @@ export default class NewspaperArchive extends Component {
 
                             {news.cover_image && (
                                 <img
-                                    src={`http://localhost:5005${news.cover_image}`}
+                                    src={`https://gossip-girl-backend.onrender.com${news.cover_image}`}
                                     alt={news.title}
                                     className='cover-thumb'
                                 />

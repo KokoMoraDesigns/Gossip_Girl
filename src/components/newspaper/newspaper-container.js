@@ -20,8 +20,8 @@ export default class NewspaperContainer extends Component {
     getNewspaperItems(category = null){
 
         const url = category
-            ? `http://localhost:5005/get_news/${category}`
-            : `http://localhost:5005/get_news`;
+            ? `https://gossip-girl-backend.onrender.com/get_news/${category}`
+            : `https://gossip-girl-backend.onrender.com/get_news`;
 
         axios.get(url, { withCredentials: true })
         .then(response => {

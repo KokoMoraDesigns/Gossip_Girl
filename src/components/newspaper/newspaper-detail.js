@@ -40,7 +40,7 @@ export default class NewspaperDetail extends Component {
     }
 
     checkSession() {
-        axios.get('http://localhost:5005/check_session', { withCredentials: true})
+        axios.get('https://gossip-girl-backend.onrender.com/check_session', { withCredentials: true})
         .then(response => {
             this.setState({ loggedIn: response.data.logged_in });
         })
@@ -53,7 +53,7 @@ export default class NewspaperDetail extends Component {
 
         const { news_id } = this.props.match.params;
 
-        axios.get(`http://localhost:5005/get_news/${news_id}`, { withCredentials: true }
+        axios.get(`https://gossip-girl-backend.onrender.com/get_news/${news_id}`, { withCredentials: true }
         )
         .then(response => {
             
@@ -118,7 +118,7 @@ export default class NewspaperDetail extends Component {
 
                     {this.state.isMobile && cover_image && (
                         <div className='cover-image'>
-                            <img src={`http://localhost:5005${cover_image}`} alt={title} />
+                            <img src={`https://gossip-girl-backend.onrender.com${cover_image}`} alt={title} />
                         </div>
                     )}
 
@@ -137,7 +137,7 @@ export default class NewspaperDetail extends Component {
                                 {news_images.map((url, idx) => (
                                     <div key={`slide-${idx}`} style={{ textAlign: 'center' }}>
                                         <img 
-                                            src={`http://localhost:5005${url}`}
+                                            src={`https://gossip-girl-backend.onrender.com${url}`}
                                             alt={`extra-${idx}`}
                                             style={{
                                                 maxHeight: '400px',

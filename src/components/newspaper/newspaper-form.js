@@ -84,7 +84,7 @@ export default class NewspaperForm extends Component {
 
     handleDeleteImage(url) {
         const { id } = this.props.editingItem;
-        axios.delete(`http://localhost:5005/delete_news_image/${id}`, {
+        axios.delete(`https://gossip-girl-backend.onrender.com/delete_news_image/${id}`, {
             data: { image_url: url },
             withCredentials: true
         })
@@ -115,8 +115,8 @@ export default class NewspaperForm extends Component {
         });
 
         const url = this.props.editingItem
-            ? `http://localhost:5005/update_news/${this.props.editingItem.id}`
-            : 'http://localhost:5005/add_news';
+            ? `https://gossip-girl-backend.onrender.com/update_news/${this.props.editingItem.id}`
+            : 'https://gossip-girl-backend.onrender.com/add_news';
 
         const method = this.props.editingItem ? 'put' : 'post';
 
@@ -202,7 +202,7 @@ export default class NewspaperForm extends Component {
                         <div className='cover-preview'>
                             <div className='preview-title'>Current cover:</div>
                             <img
-                                src={`http://localhost:5005${this.state.existingCover}`}
+                                src={`https://gossip-girl-backend.onrender.com${this.state.existingCover}`}
                                 alt='cover'
                                 className='cover-thumb'
                             />
@@ -218,7 +218,7 @@ export default class NewspaperForm extends Component {
                                 <div key={idx} className='evidence-item'>
                                     
                                     <img
-                                        src={`http://localhost:5005${url}`}
+                                        src={`https://gossip-girl-backend.onrender.com${url}`}
                                         alt={`extra-${idx}`}
                                         className='evidence-thumb'
                                     />
