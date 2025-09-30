@@ -1,10 +1,9 @@
 import React from 'react';
-import mailboxPicture from '../../../static/assets/images/mailbox/42.png'
+import mailboxPicture from '../../../static/assets/images/mailbox/50.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function() {
     return (
-            //33, 34*, 36, 39, 42*, 44, 48*, 50*
         <div className='content-wrapper'>
 
             <div 
@@ -29,7 +28,7 @@ export default function() {
                     <p>Welcome to the secret repository... Obviously, an inclusive secret repository, so nobody should be left behind: your friend, your enemy, your partner, your teacher... not even your mom.</p>
                     <p>If you have witnessed one of their little -hopefully, not so little- secrets, burn their mask, gather the evidence, and share it with the world; my mailbox will be thirsty, oh, so thirsty, for your tea...</p>
                     
-                    <p>Or maybe... maybe you have something to confess? There are no judgements between my lines, so please, let me be your confessor, your bridge to freedom...</p>
+                    <p>Or maybe... maybe you have something to confess? There is no judgement between my lines, so please, let me be your confessor, your bridge to freedom...</p>
 
                     <p>Oh, yes, only one little note: even hell and open relationships have a few rules, G.G. just one: no revenge porn or outing will be accepted.</p>
 

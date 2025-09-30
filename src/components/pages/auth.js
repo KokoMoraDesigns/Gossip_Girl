@@ -3,8 +3,6 @@ import { withRouter } from 'react-router-dom';
 import Login from '../auth/login';
 
 
-
-
 class Auth extends Component {
 
     constructor(props) {

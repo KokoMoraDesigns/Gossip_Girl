@@ -9,12 +9,9 @@ export default class NewspaperContainer extends Component {
         super();
 
         this.state = {
-            pageTitle: 'are you here for the gossip?',
-            isLoading: false,
             data: []
         };
 
-        this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
     }
 
@@ -65,17 +62,8 @@ export default class NewspaperContainer extends Component {
         this.getNewspaperItems();
     }
 
-    handlePageTitleUpdate() {
-        this.setState({
-            pageTitle: 'may your wishes come true'
-        });
-    }
 
     render() {
-
-        if (this.state.isLoading) {
-            return <div>Loading...</div>;
-        }
 
         return (
 
