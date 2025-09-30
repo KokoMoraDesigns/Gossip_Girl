@@ -140,7 +140,7 @@ Flask for the back-end
 
 MySQL for the database
 
-Heroku for the deployment
+Render, Railway & Vercel for the deployment
 
 <br>
 
