@@ -43,7 +43,10 @@ export default class NewspaperForm extends Component {
                 news_images: [],
                 category: item ? item.category : 'Teachers',
                 existingCover: item ? item.cover_image : null,
-                existingImages: item ? item.news_images || [] : []
+                existingImages: item ? item.news_images || [] : [],
+                message: this.props.editingItem ? '' : this.state.message,
+                coverName: 'No cover has been selected',
+                imagesNames: 'No evidences has been selected'
             });
             window.scrollTo(0,0);
         }
@@ -125,7 +128,27 @@ export default class NewspaperForm extends Component {
             headers: { 'Content-Type': 'multipart/form-data'}
         })
         .then(() => {
-            this.setState({ message: 'this gossip has been successfully spread' });
+            if (this.props.editingItem) {
+                this.setState({
+                    message: 'this gossip has been successfully updated',
+                    cover_image: null,
+                    news_images: [],
+                    coverName: 'No cover has been selected',
+                    imagesNames: 'No evidences has been selected'
+                });
+            } else {
+                this.setState({ message: 'this gossip has been successfully spread',
+                                title: '',
+                                content: '',
+                                category: 'Teachers',
+                                cover_image: null,
+                                news_images: [],
+                                coverName: 'No cover has been selected',
+                                imagesNames: 'No evidences has been selected',
+                                existingCover: null, 
+                                existingImages: []
+                });
+            }
             this.props.onSuccess();
         })
         .catch(error => {
