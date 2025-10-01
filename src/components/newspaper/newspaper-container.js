@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import NewspaperItem from './newspaper-item';
+import api from '../../helpers/api';
 
 export default class NewspaperContainer extends Component {
 
@@ -20,10 +20,10 @@ export default class NewspaperContainer extends Component {
     getNewspaperItems(category = null){
 
         const url = category
-            ? `https://gossip-girl-backend.onrender.com/get_news/${category}`
-            : `https://gossip-girl-backend.onrender.com/get_news`;
+            ? `/get_news/${category}`
+            : `/get_news`;
 
-        axios.get(url, { withCredentials: true })
+        api.get(url)
         .then(response => {
             this.setState({
                 data: response.data.newspaper_items

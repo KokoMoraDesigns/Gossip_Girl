@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import axios from 'axios';
 
 import NewspaperForm from "../newspaper/newspaper-form";
 import NewspaperArchive from "../newspaper/newspaper-archive";
+import api from '../../helpers/api';
 
 export default class NewspaperManager extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export default class NewspaperManager extends Component {
     }
 
     loadNews() {
-        axios.get('https://gossip-girl-backend.onrender.com/get_news', { withCredentials: true })
+        api.get('/get_news')
         .then(response => {
             this.setState({ newsList: response.data.newspaper_items })
         })
@@ -38,7 +38,7 @@ export default class NewspaperManager extends Component {
     }
 
     loadNewsItem(id) {
-        axios.get(`https://gossip-girl-backend.onrender.com/get_news/${id}`, { withCredentials: true })
+        api.get(`/get_news/${id}`)
             .then(response => {
                 this.setState({ editingItem: response.data });
                 window.scrollTo({ top:0, behavior:smooth });

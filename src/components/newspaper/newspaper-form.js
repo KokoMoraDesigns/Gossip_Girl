@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import api, { API_URL } from '../../helpers/api';
 
 export default class NewspaperForm extends Component {
 
@@ -84,9 +85,9 @@ export default class NewspaperForm extends Component {
 
     handleDeleteImage(url) {
         const { id } = this.props.editingItem;
-        axios.delete(`https://gossip-girl-backend.onrender.com/delete_news_image/${id}`, {
-            data: { image_url: url },
-            withCredentials: true
+        api.delete(`/delete_news_image/${id}`, {
+            data: { image_url: url }
+            
         })
         .then(() => {
             this.setState(prevState => ({
@@ -115,16 +116,15 @@ export default class NewspaperForm extends Component {
         });
 
         const url = this.props.editingItem
-            ? `https://gossip-girl-backend.onrender.com/update_news/${this.props.editingItem.id}`
-            : 'https://gossip-girl-backend.onrender.com/add_news';
+            ? `${API_URL}/update_news/${this.props.editingItem.id}`
+            : `${API_URL}/add_news`;
 
         const method = this.props.editingItem ? 'put' : 'post';
 
-        axios({
+        api({
             method,
             url,
             data: formData,
-            withCredentials: true,
             headers: { 'Content-Type': 'multipart/form-data'}
         })
         .then(() => {
@@ -202,7 +202,7 @@ export default class NewspaperForm extends Component {
                         <div className='cover-preview'>
                             <div className='preview-title'>Current cover:</div>
                             <img
-                                src={`https://gossip-girl-backend.onrender.com${this.state.existingCover}`}
+                                src={`${API_URL}${this.state.existingCover}`}
                                 alt='cover'
                                 className='cover-thumb'
                             />
@@ -218,7 +218,7 @@ export default class NewspaperForm extends Component {
                                 <div key={idx} className='evidence-item'>
                                     
                                     <img
-                                        src={`https://gossip-girl-backend.onrender.com${url}`}
+                                        src={`${API_URL}${url}`}
                                         alt={`extra-${idx}`}
                                         className='evidence-thumb'
                                     />

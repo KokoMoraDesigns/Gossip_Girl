@@ -1,8 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
+
+import api from '../../helpers/api';
 
 
 
@@ -21,8 +22,8 @@ const NavigationComponent = (props) => {
 
 
     const handleSignOut = () => {
-        axios
-            .post('https://gossip-girl-backend.onrender.com/logout', {}, { withCredentials: true })
+        api
+            .post('/logout', {})
             .then(response => {
 
                 if (response.status === 200) {

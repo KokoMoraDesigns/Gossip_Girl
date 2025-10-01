@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import api, { API_URL } from "../../helpers/api";
 
 export default class NewspaperArchive extends Component {
 
@@ -16,7 +16,7 @@ export default class NewspaperArchive extends Component {
     handleDelete(id) {
         if (!window.confirm('are you sure you want to remove this gossip?')) return;
 
-        axios.delete(`https://gossip-girl-backend.onrender.com/delete_news/${id}`, { withCredentials: true })
+        api.delete(`/delete_news/${id}`)
         .then(() => {
             this.props.onDelete();
         })
@@ -44,7 +44,7 @@ export default class NewspaperArchive extends Component {
 
                             {news.cover_image && (
                                 <img
-                                    src={`https://gossip-girl-backend.onrender.com${news.cover_image}`}
+                                    src={`${API_URL}${news.cover_image}`}
                                     alt={news.title}
                                     className='cover-thumb'
                                 />

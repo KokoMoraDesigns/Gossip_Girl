@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { API_URL } from '../../helpers/api';
+
 
 export default class NewspaperItem extends Component {
 
@@ -38,7 +40,7 @@ export default class NewspaperItem extends Component {
                     <div 
                         className={`newspaper-image-background ${this.state.newspaperItemClass}`}
                         style={{
-                            backgroundImage: `url(https://gossip-girl-backend.onrender.com${cover_image})`
+                            backgroundImage: `${API_URL}${cover_image})`
                         }}
                     />
 

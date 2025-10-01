@@ -21,6 +21,7 @@ import NewspaperManager from './pages/newspaper_manager';
 import NewspaperDetail from './newspaper/newspaper-detail';
 import NoMatch from './pages/no-match';
 import Icons from '../helpers/icons';
+import api from '../helpers/api';
 import {
   
   slideUpVariant
@@ -71,10 +72,8 @@ export default class App extends Component {
 
   checkLoginStatus() {
 
-    return axios
-      .get('https://gossip-girl-backend.onrender.com/check_session', {
-        withCredentials:true
-      })
+    return api
+      .get('/check_session')
       .then(response => {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;

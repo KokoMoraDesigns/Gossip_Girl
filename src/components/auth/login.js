@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import authImage from '../../../static/assets/images/auth/16.png';
+import api from '../../helpers/api';
 
 export default class Login extends Component {
     constructor(props) {
@@ -29,12 +29,12 @@ export default class Login extends Component {
 
         event.preventDefault();
         
-        axios
+        api
             .post(
-                'https://gossip-girl-backend.onrender.com/login', {
+                '/login', {
                     email: this.state.email,
                     password: this.state.password
-                }, { withCredentials: true })
+                })
             .then(response => {
                 if (response.data.logged_in) {
                     this.props.handleSuccessfulAuth();

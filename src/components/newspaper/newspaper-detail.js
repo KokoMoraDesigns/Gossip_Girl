@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-
-import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router-dom';
+
+import NewspaperDetailImage from '../../../static/assets/images/newspaper-detail/11.png'
+
+import api, { API_URL } from '../../helpers/api';
 
 
 
@@ -40,7 +41,7 @@ export default class NewspaperDetail extends Component {
     }
 
     checkSession() {
-        axios.get('https://gossip-girl-backend.onrender.com/check_session', { withCredentials: true})
+        api.get('/check_session')
         .then(response => {
             this.setState({ loggedIn: response.data.logged_in });
         })
@@ -53,8 +54,7 @@ export default class NewspaperDetail extends Component {
 
         const { news_id } = this.props.match.params;
 
-        axios.get(`https://gossip-girl-backend.onrender.com/get_news/${news_id}`, { withCredentials: true }
-        )
+        api.get(`/get_news/${news_id}`)
         .then(response => {
             
             this.setState({
@@ -118,7 +118,7 @@ export default class NewspaperDetail extends Component {
 
                     {this.state.isMobile && cover_image && (
                         <div className='cover-image'>
-                            <img src={`https://gossip-girl-backend.onrender.com${cover_image}`} alt={title} />
+                            <img src={`${API_URL}${cover_image}`} alt={title} />
                         </div>
                     )}
 
@@ -137,7 +137,7 @@ export default class NewspaperDetail extends Component {
                                 {news_images.map((url, idx) => (
                                     <div key={`slide-${idx}`} style={{ textAlign: 'center' }}>
                                         <img 
-                                            src={`https://gossip-girl-backend.onrender.com${url}`}
+                                            src={`${API_URL}${url}`}
                                             alt={`extra-${idx}`}
                                             style={{
                                                 maxHeight: '400px',
